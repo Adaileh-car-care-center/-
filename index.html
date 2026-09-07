@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مركز العضايله للعناية بالمركبات - بإدارة أحمد العضايلة</title>
+  <title>مركز العضايله للعناية بالمركبات</title>
   <style>
     :root {
       --primary: #0f172a;
@@ -20,30 +20,23 @@
     /* Top Bar */
     .top-bar { background-color: var(--dark); color: #94a3b8; padding: 0.5rem 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
 
-    /* Header */
-    header { background-color: var(--secondary); color: #fff; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    /* Header & Luxury Gold SVG Logo */
+    header { background-color: var(--secondary); color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     
     .brand-container {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.2rem;
     }
 
-    .brand-logo-icon {
-      width: 50px;
-      height: 50px;
-      background: linear-gradient(135deg, #e11d48, #0f172a);
-      border: 2px solid #ffffff;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    .brand-logo-svg {
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+      filter: drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.5));
     }
 
-    header .logo-area h1 { font-size: 1.5rem; color: #ffffff; margin-bottom: 0.1rem; }
-    header .logo-area span { font-size: 0.85rem; color: #cbd5e1; }
+    header .logo-area h1 { font-size: 1.55rem; color: #ffffff; margin: 0; font-weight: 700; letter-spacing: -0.5px; }
     
     .header-btns { display: flex; gap: 0.6rem; }
     .btn-fb { background-color: #1877f2; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; }
@@ -57,24 +50,12 @@
     .btn-primary { background-color: var(--accent); color: white; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 6px; font-size: 1.1rem; font-weight: bold; display: inline-block; border: none; cursor: pointer; }
     .btn-primary:hover { background-color: var(--accent-hover); }
 
-    /* Booking Form Section */
-    .booking-section { background-color: #ffffff; padding: 4rem 2rem; border-bottom: 1px solid #e2e8f0; }
-    .booking-container { max-width: 650px; margin: 0 auto; background: var(--light); padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); }
-    .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
-    .booking-container p { text-align: center; color: #64748b; margin-bottom: 2rem; }
-    .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--secondary); }
-    .form-group input, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
-    .btn-submit { width: 100%; background-color: #25d366; color: white; padding: 1rem; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; }
-    .btn-submit:hover { background-color: #1eb854; }
-
     /* Services */
     .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
     .services h3, .reviews h3 { text-align: center; font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--primary); }
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
     .card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; display: flex; flex-direction: column; }
     
-    /* Matching Image Frame Style */
     .card-img-wrapper {
       width: 100%;
       height: 230px;
@@ -98,8 +79,19 @@
     .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.4rem; position: relative; padding-right: 1.2rem; }
     .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
 
+    /* Booking Form Section (Placed After Services) */
+    .booking-section { background-color: #f1f5f9; padding: 4rem 2rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
+    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); }
+    .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .booking-container p { text-align: center; color: #64748b; margin-bottom: 2rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--secondary); }
+    .form-group input, .form-group select { width: 100%; padding: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 1rem; }
+    .btn-submit { width: 100%; background-color: #25d366; color: white; padding: 1rem; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+    .btn-submit:hover { background-color: #1eb854; }
+
     /* Reviews */
-    .reviews { background-color: #f8fafc; padding: 4rem 2rem; }
+    .reviews { background-color: var(--light); padding: 4rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
     .review-card { background: white; padding: 1.8rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-right: 4px solid #25d366; }
     .stars { color: #f59e0b; margin-bottom: 0.5rem; }
@@ -126,68 +118,45 @@
 
   <!-- Top Bar -->
   <div class="top-bar">
-    <div>مركز العضايله للعناية بالمركبات - بإدارة أحمد العضايلة</div>
+    <div>مركز العضايله للعناية بالمركبات</div>
     <div>هاتف: <a href="tel:0776999555" style="color: #cbd5e1; text-decoration: none; direction: ltr; display: inline-block;">0776999555</a></div>
   </div>
 
   <header>
     <div class="brand-container">
-      <div class="brand-logo-icon">🚗</div>
+      <!-- Luxury Gold Monogram SVG Logo -->
+      <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" fill="#090d16" stroke="url(#gold-grad)" stroke-width="3"/>
+        <circle cx="50" cy="50" r="41" fill="none" stroke="url(#gold-grad)" stroke-width="1" stroke-dasharray="3 3"/>
+        <path d="M50 20 L66 68 H55 L50 52 L45 68 H34 L50 20 Z" fill="url(#gold-grad)"/>
+        <path d="M50 12 L52 16 L56 18 L52 20 L50 24 L48 20 L44 18 L48 16 Z" fill="#ffffff"/>
+        <path d="M30 73 C42 77 58 77 70 73 C60 75 40 75 30 73 Z" fill="url(#gold-grad)"/>
+        <defs>
+          <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f6d365"/>
+            <stop offset="50%" stop-color="#fda085"/>
+            <stop offset="100%" stop-color="#f7b733"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
       <div class="logo-area">
         <h1>مركز العضايله للعناية بالمركبات</h1>
-        <span>إدارة: أحمد العضايلة (Ahmad Adaileh)</span>
       </div>
     </div>
+    
     <div class="header-btns">
       <a href="https://wa.me/962776999555" target="_blank" class="btn-wa">واتساب</a>
       <a href="https://www.facebook.com/p/%25D9%2585%25D8%25B1%25D9%2583%25D8%25B2-%25D8%25A7%25D9%2584%25D8%25B9%25D8%25B6%25D8%25A7%25D9%258A%25D9%2584%25D9%2587-%25D9%2584%25D9%2584%25D8%25B9%25D9%2586%25D8%25A7%25D9%258A%25D9%2587-%25D8%25A8%25D8%25A7%25D9%2584%25D9%2585%25D8%25B1%25D9%2583%25D8%25A8%25D8%25A7%25D8%25AA-61559734410888/" target="_blank" class="btn-fb">فيسبوك</a>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <h2>أفضل خدمة للعناية بسيارتك</h2>
     <p>نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
     <div class="hero-buttons">
       <a href="#booking" class="btn-primary">احجز خدمتك الآن</a>
-      <a href="tel:0776999555" class="btn-primary" style="background-color: var(--secondary);">اتصل بنا: 0776999555</a>
-    </div>
-  </section>
-
-  <!-- Interactive Booking Form Section -->
-  <section class="booking-section" id="booking">
-    <div class="booking-container">
-      <h3>📅 احجز موعدك الآن</h3>
-      <p>اختر الخدمة والوقت المناسب لك وسنتواصل معك فوراً لتأكيد الحجز</p>
-      
-      <form id="bookingForm" onsubmit="sendBooking(event)">
-        <div class="form-group">
-          <label>الاسم الكامل:</label>
-          <input type="text" id="custName" placeholder="أدخل اسمك" required>
-        </div>
-
-        <div class="form-group">
-          <label>نوع وموديل السيارة:</label>
-          <input type="text" id="carModel" placeholder="مثال: تويوتا كامري 2022" required>
-        </div>
-
-        <div class="form-group">
-          <label>اختر الخدمة المطلوب حجزها:</label>
-          <select id="serviceType" required>
-            <option value="حماية النانو سيراميك">حماية النانو سيراميك</option>
-            <option value="التلميع والبوليش الخارجي">التلميع والبوليش الخارجي</option>
-            <option value="التنظيف والتفصيل الداخلي (Detailing)">التنظيف والتفصيل الداخلي (Detailing)</option>
-            <option value="العزل الحراري والتظليل">العزل الحراري والتظليل</option>
-            <option value="غسيل وتفصيل كامل للمركبة">غسيل وتفصيل كامل للمركبة</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>التاريخ المفضل للزيارة:</label>
-          <input type="date" id="bookingDate" required>
-        </div>
-
-        <button type="submit" class="btn-submit">📲 إرسال الحجز عبر الواتساب</button>
-      </form>
     </div>
   </section>
 
@@ -247,13 +216,51 @@
     </div>
   </section>
 
+  <!-- Interactive Booking Form Section (Moved After Services) -->
+  <section class="booking-section" id="booking">
+    <div class="booking-container">
+      <h3>📅 احجز موعدك الآن</h3>
+      <p>اختر الخدمة والوقت المناسب لك وسنتواصل معك فوراً لتأكيد الحجز</p>
+      
+      <form id="bookingForm" onsubmit="sendBooking(event)">
+        <div class="form-group">
+          <label>الاسم الكامل:</label>
+          <input type="text" id="custName" placeholder="أدخل اسمك" required>
+        </div>
+
+        <div class="form-group">
+          <label>نوع وموديل السيارة:</label>
+          <input type="text" id="carModel" placeholder="مثال: تويوتا كامري 2022" required>
+        </div>
+
+        <div class="form-group">
+          <label>اختر الخدمة المطلوب حجزها:</label>
+          <select id="serviceType" required>
+            <option value="حماية النانو سيراميك">حماية النانو سيراميك</option>
+            <option value="التلميع والبوليش الخارجي">التلميع والبوليش الخارجي</option>
+            <option value="التنظيف والتفصيل الداخلي (Detailing)">التنظيف والتفصيل الداخلي (Detailing)</option>
+            <option value="العزل الحراري والتظليل">العزل الحراري والتظليل</option>
+            <option value="غسيل وتفصيل كامل للمركبة">غسيل وتفصيل كامل للمركبة</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>التاريخ المفضل للزيارة:</label>
+          <input type="date" id="bookingDate" required>
+        </div>
+
+        <button type="submit" class="btn-submit">📲 إرسال الحجز عبر الواتساب</button>
+      </form>
+    </div>
+  </section>
+
   <!-- Customer Reviews -->
   <section class="reviews">
     <h3>آراء عملائنا الكرام</h3>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p>"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً من السيد أحمد العضايلة."</p>
+        <p>"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً."</p>
         <br><strong>- محمد الطراونة</strong>
       </div>
       <div class="review-card">
@@ -274,9 +281,8 @@
     <h3>موقعنا والتواصل المباشر</h3>
     <div class="contact-container">
       <div class="contact-info">
-        <p><strong>المالك والمدير المسؤول:</strong> أحمد العضايلة (Ahmad Adaileh)</p>
-        <p><strong>رقم الهاتف المباشر:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
-        <p><strong>الواتساب:</strong> <a href="https://wa.me/962776999555" target="_blank" style="color:#25d366; font-weight:bold;">اضغط هنا للمحادثة المباشرة</a></p>
+        <p><strong>الإدارة المسؤولية:</strong> أحمد العضايلة (Ahmad Adaileh)</p>
+        <p><strong>رقم الهاتف / الواتساب:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
         <p><strong>العنوان:</strong> الأردن</p>
         <p><strong>ساعات العمل:</strong> يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً</p>
       </div>
@@ -287,7 +293,7 @@
   </section>
 
   <footer>
-    <p>&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات (إدارة أحمد العضايلة)</p>
+    <p>&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات</p>
   </footer>
 
   <script>

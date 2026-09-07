@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlRoot">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مركز العضايله للعناية بالمركبات</title>
+  <title id="pageTitle">مركز العضايله للعناية بالمركبات | Adaileh Car Care Center</title>
   <style>
     :root {
       --primary: #0f172a;
@@ -20,7 +20,27 @@
     /* Top Bar */
     .top-bar { background-color: var(--dark); color: #94a3b8; padding: 0.5rem 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
 
-    /* Header & Luxury Gold SVG Logo */
+    /* Language Switcher Button */
+    .lang-btn {
+      background-color: var(--secondary);
+      color: #fff;
+      border: 1px solid #475569;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:hover {
+      background-color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* Header & Logo */
     header { background-color: var(--secondary); color: #fff; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
     
     .brand-container {
@@ -29,11 +49,12 @@
       gap: 1.2rem;
     }
 
-    .brand-logo-svg {
-      width: 58px;
-      height: 58px;
-      flex-shrink: 0;
-      filter: drop-shadow(0px 3px 8px rgba(0, 0, 0, 0.5));
+    .brand-logo-img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      border-radius: 8px;
+      filter: drop-shadow(0px 3px 6px rgba(0, 0, 0, 0.4));
     }
 
     header .logo-area h1 { font-size: 1.55rem; color: #ffffff; margin: 0; font-weight: 700; letter-spacing: -0.5px; }
@@ -43,7 +64,7 @@
     .btn-wa { background-color: #25d366; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; }
 
     /* Hero */
-    .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1400&q=80') center/cover; color: white; text-align: center; padding: 6rem 1rem; }
+    .hero { background: linear-gradient(rgba(15, 23, 42, 0.88), rgba(15, 23, 42, 0.88)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1400&q=80') center/cover; color: white; text-align: center; padding: 6rem 1rem; }
     .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
     .hero p { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2rem auto; color: #cbd5e1; }
     .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
@@ -76,10 +97,13 @@
     .card h4 { font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 0.5rem; }
     .card p { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
     .card ul { list-style-type: none; padding: 0; margin-top: auto; }
-    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.4rem; position: relative; padding-right: 1.2rem; }
-    .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
+    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.4rem; position: relative; padding-inline-start: 1.4rem; }
+    
+    /* RTL / LTR Checkmark styling */
+    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
+    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
-    /* Booking Form Section (Placed After Services) */
+    /* Booking Form Section */
     .booking-section { background-color: #f1f5f9; padding: 4rem 2rem; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; }
     .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--accent); }
     .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
@@ -93,7 +117,9 @@
     /* Reviews */
     .reviews { background-color: var(--light); padding: 4rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-    .review-card { background: white; padding: 1.8rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-right: 4px solid #25d366; }
+    .review-card { background: white; padding: 1.8rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    [dir="rtl"] .review-card { border-right: 4px solid #25d366; }
+    [dir="ltr"] .review-card { border-left: 4px solid #25d366; }
     .stars { color: #f59e0b; margin-bottom: 0.5rem; }
 
     /* Contact */
@@ -114,69 +140,62 @@
 <body>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="تواصل عبر الواتساب">💬</a>
+  <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
   <!-- Top Bar -->
   <div class="top-bar">
-    <div>مركز العضايله للعناية بالمركبات</div>
-    <div>هاتف: <a href="tel:0776999555" style="color: #cbd5e1; text-decoration: none; direction: ltr; display: inline-block;">0776999555</a></div>
+    <div id="topBarTitle">مركز العضايله للعناية بالمركبات</div>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <!-- Language Switcher Toggle -->
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="langBtnText">English</span>
+      </button>
+      <div><span id="phoneLabel">هاتف:</span> <a href="tel:0776999555" style="color: #cbd5e1; text-decoration: none; direction: ltr; display: inline-block;">0776999555</a></div>
+    </div>
   </div>
 
   <header>
     <div class="brand-container">
-      <!-- Luxury Gold Monogram SVG Logo -->
-      <svg class="brand-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="46" fill="#090d16" stroke="url(#gold-grad)" stroke-width="3"/>
-        <circle cx="50" cy="50" r="41" fill="none" stroke="url(#gold-grad)" stroke-width="1" stroke-dasharray="3 3"/>
-        <path d="M50 20 L66 68 H55 L50 52 L45 68 H34 L50 20 Z" fill="url(#gold-grad)"/>
-        <path d="M50 12 L52 16 L56 18 L52 20 L50 24 L48 20 L44 18 L48 16 Z" fill="#ffffff"/>
-        <path d="M30 73 C42 77 58 77 70 73 C60 75 40 75 30 73 Z" fill="url(#gold-grad)"/>
-        <defs>
-          <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#f6d365"/>
-            <stop offset="50%" stop-color="#fda085"/>
-            <stop offset="100%" stop-color="#f7b733"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <!-- Uploaded Custom Logo (logo.png) -->
+      <img src="logo.png" alt="Adaileh Car Care Center" class="brand-logo-img" onerror="this.style.display='none'">
 
       <div class="logo-area">
-        <h1>مركز العضايله للعناية بالمركبات</h1>
+        <h1 id="brandTitle">مركز العضايله للعناية بالمركبات</h1>
       </div>
     </div>
     
     <div class="header-btns">
-      <a href="https://wa.me/962776999555" target="_blank" class="btn-wa">واتساب</a>
-      <a href="https://www.facebook.com/p/%25D9%2585%25D8%25B1%25D9%2583%25D8%25B2-%25D8%25A7%25D9%2584%25D8%25B9%25D8%25B6%25D8%25A7%25D9%258A%25D9%2584%25D9%2587-%25D9%2584%25D9%2584%25D8%25B9%25D9%2586%25D8%25A7%25D9%258A%25D9%2587-%25D8%25A8%25D8%25A7%25D9%2584%25D9%2585%25D8%25B1%25D9%2583%25D8%25A8%25D8%25A7%25D8%25AA-61559734410888/" target="_blank" class="btn-fb">فيسبوك</a>
+      <a href="https://wa.me/962776999555" target="_blank" class="btn-wa" id="btnWa">واتساب</a>
+      <a href="https://www.facebook.com/p/%25D9%2585%25D8%25B1%25D9%2583%25D8%25B2-%25D8%25A7%25D9%2584%25D8%25B9%25D8%25B6%25D8%25A7%25D9%258A%25D9%2584%25D9%2587-%25D9%2584%25D9%2584%25D8%25B9%25D9%2586%25D8%25A7%25D9%258A%25D9%2587-%25D8%25A8%25D8%25A7%25D9%2584%25D9%2585%25D8%25B1%25D9%2583%25D8%25A8%25D8%25A7%25D8%25AA-61559734410888/" target="_blank" class="btn-fb" id="btnFb">فيسبوك</a>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2>أفضل خدمة للعناية بسيارتك</h2>
-    <p>نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
+    <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك</h2>
+    <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
     <div class="hero-buttons">
-      <a href="#booking" class="btn-primary">احجز خدمتك الآن</a>
+      <a href="#booking" class="btn-primary" id="heroBtn">احجز خدمتك الآن</a>
     </div>
   </section>
 
   <!-- Services Section -->
   <section class="services">
-    <h3>خدماتنا المتخصصة</h3>
+    <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
       
       <!-- Card 1 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" alt="حماية النانو سيراميك" class="card-img">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic" class="card-img">
         </div>
         <div class="card-content">
-          <h4>حماية النانو سيراميك</h4>
-          <p>تقنية درع الحماية الكريستالي التي تمنح هيكل السيارة مقاومة عالية وتزيد من العمر الافتراضي لطلاء المركبة.</p>
+          <h4 id="s1Title">حماية النانو سيراميك</h4>
+          <p id="s1Desc">تقنية درع الحماية الكريستالي التي تمنح هيكل السيارة مقاومة عالية وتزيد من العمر الافتراضي لطلاء المركبة.</p>
           <ul>
-            <li>حماية المينا من الأشعة فوق البنفسجية والأكسدة</li>
-            <li>خاصية الهيدروفوبيك لمنع التصاق الماء والأتربة</li>
-            <li>إعطاء لمعان وبريق كريستالي مستمر</li>
+            <li id="s1f1">حماية المينا من الأشعة فوق البنفسجية والأكسدة</li>
+            <li id="s1f2">خاصية الهيدروفوبيك لمنع التصاق الماء والأتربة</li>
+            <li id="s1f3">إعطاء لمعان وبريق كريستالي مستمر</li>
           </ul>
         </div>
       </div>
@@ -184,15 +203,15 @@
       <!-- Card 2 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="التلميع والبوليش الخارجي" class="card-img">
+          <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=800&q=80" alt="External Polish" class="card-img">
         </div>
         <div class="card-content">
-          <h4>التلميع والبوليش الخارجي</h4>
-          <p>معالجة متكاملة لطلاء السيارة لإرجاع لمعة الوكالة مع إزالة آثار الأكسدة الدقيقة ودوائر الغسيل.</p>
+          <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
+          <p id="s2Desc">معالجة متكاملة لطلاء السيارة لإرجاع لمعة الوكالة مع إزالة آثار الأكسدة الدقيقة ودوائر الغسيل.</p>
           <ul>
-            <li>معالجة الخدوش السطحية ودوائر التلميع</li>
-            <li>إعادة توحيد لون الطلاء وتصحيح العيوب</li>
-            <li>تلميع الأضواء الأمامية لإعادة وضوحها</li>
+            <li id="s2f1">معالجة الخدوش السطحية ودوائر التلميع</li>
+            <li id="s2f2">إعادة توحيد لون الطلاء وتصحيح العيوب</li>
+            <li id="s2f3">تلميع الأضواء الأمامية لإعادة وضوحها</li>
           </ul>
         </div>
       </div>
@@ -200,15 +219,15 @@
       <!-- Card 3 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=800&q=80" alt="التنظيف والتفصيل الداخلي" class="card-img">
+          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="Interior Detailing" class="card-img">
         </div>
         <div class="card-content">
-          <h4>التنظيف والتفصيل الداخلي (Detailing)</h4>
-          <p>تنظيف وتعقيم عميق لكافة مكونات المقصورة الداخلية للمركبة مع العناية بكافة التفاصيل الصغيرة.</p>
+          <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>
+          <p id="s3Desc">تنظيف وتعقيم عميق لكافة مكونات المقصورة الداخلية للمركبة مع العناية بكافة التفاصيل الصغيرة.</p>
           <ul>
-            <li>تنظيف وتعقيم المقاعد بجهاز البخار</li>
-            <li>إزالة البقع المستعصية والروائح الكريهة</li>
-            <li>ترطيب وتغذية المقاعد الجلدية لحمايتها</li>
+            <li id="s3f1">تنظيف وتعقيم المقاعد بجهاز البخار</li>
+            <li id="s3f2">إزالة البقع المستعصية والروائح الكريهة</li>
+            <li id="s3f3">ترطيب وتغذية المقاعد الجلدية لحمايتها</li>
           </ul>
         </div>
       </div>
@@ -216,75 +235,75 @@
     </div>
   </section>
 
-  <!-- Interactive Booking Form Section (Moved After Services) -->
+  <!-- Interactive Booking Form Section -->
   <section class="booking-section" id="booking">
     <div class="booking-container">
-      <h3>📅 احجز موعدك الآن</h3>
-      <p>اختر الخدمة والوقت المناسب لك وسنتواصل معك فوراً لتأكيد الحجز</p>
+      <h3 id="bookTitle">📅 احجز موعدك الآن</h3>
+      <p id="bookSub">اختر الخدمة والوقت المناسب لك وسنتواصل معك فوراً لتأكيد الحجز</p>
       
       <form id="bookingForm" onsubmit="sendBooking(event)">
         <div class="form-group">
-          <label>الاسم الكامل:</label>
+          <label id="lblCustName">الاسم الكامل:</label>
           <input type="text" id="custName" placeholder="أدخل اسمك" required>
         </div>
 
         <div class="form-group">
-          <label>نوع وموديل السيارة:</label>
+          <label id="lblCarModel">نوع وموديل السيارة:</label>
           <input type="text" id="carModel" placeholder="مثال: تويوتا كامري 2022" required>
         </div>
 
         <div class="form-group">
-          <label>اختر الخدمة المطلوب حجزها:</label>
+          <label id="lblService">اختر الخدمة المطلوب حجزها:</label>
           <select id="serviceType" required>
-            <option value="حماية النانو سيراميك">حماية النانو سيراميك</option>
-            <option value="التلميع والبوليش الخارجي">التلميع والبوليش الخارجي</option>
-            <option value="التنظيف والتفصيل الداخلي (Detailing)">التنظيف والتفصيل الداخلي (Detailing)</option>
-            <option value="العزل الحراري والتظليل">العزل الحراري والتظليل</option>
-            <option value="غسيل وتفصيل كامل للمركبة">غسيل وتفصيل كامل للمركبة</option>
+            <option value="حماية النانو سيراميك" id="opt1">حماية النانو سيراميك</option>
+            <option value="التلميع والبوليش الخارجي" id="opt2">التلميع والبوليش الخارجي</option>
+            <option value="التنظيف والتفصيل الداخلي (Detailing)" id="opt3">التنظيف والتفصيل الداخلي (Detailing)</option>
+            <option value="العزل الحراري والتظليل" id="opt4">العزل الحراري والتظليل</option>
+            <option value="غسيل وتفصيل كامل للمركبة" id="opt5">غسيل وتفصيل كامل للمركبة</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>التاريخ المفضل للزيارة:</label>
+          <label id="lblDate">التاريخ المفضل للزيارة:</label>
           <input type="date" id="bookingDate" required>
         </div>
 
-        <button type="submit" class="btn-submit">📲 إرسال الحجز عبر الواتساب</button>
+        <button type="submit" class="btn-submit" id="btnSubmit">📲 إرسال الحجز عبر الواتساب</button>
       </form>
     </div>
   </section>
 
   <!-- Customer Reviews -->
   <section class="reviews">
-    <h3>آراء عملائنا الكرام</h3>
+    <h3 id="reviewsHeading">آراء عملائنا الكرام</h3>
     <div class="reviews-grid">
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p>"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً."</p>
-        <br><strong>- محمد الطراونة</strong>
+        <p id="rev1Text">"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً."</p>
+        <br><strong id="rev1Author">- محمد الطراونة</strong>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p>"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."</p>
-        <br><strong>- خالد المجالي</strong>
+        <p id="rev2Text">"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."</p>
+        <br><strong id="rev2Author">- خالد المجالي</strong>
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p>"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."</p>
-        <br><strong>- عمر العبادي</strong>
+        <p id="rev3Text">"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."</p>
+        <br><strong id="rev3Author">- عمر العبادي</strong>
       </div>
     </div>
   </section>
 
   <!-- Contact & Map -->
   <section class="contact-section">
-    <h3>موقعنا والتواصل المباشر</h3>
+    <h3 id="contactHeading">موقعنا والتواصل المباشر</h3>
     <div class="contact-container">
       <div class="contact-info">
-        <p><strong>الإدارة المسؤولية:</strong> أحمد العضايلة (Ahmad Adaileh)</p>
-        <p><strong>رقم الهاتف / الواتساب:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
-        <p><strong>العنوان:</strong> الأردن</p>
-        <p><strong>ساعات العمل:</strong> يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً</p>
+        <p><strong id="lblMgr">الإدارة المسؤولية:</strong> <span id="valMgr">أحمد العضايلة (Ahmad Adaileh)</span></p>
+        <p><strong id="lblPhone">رقم الهاتف / الواتساب:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
+        <p><strong id="lblAddr">العنوان:</strong> <span id="valAddr">الأردن</span></p>
+        <p><strong id="lblHours">ساعات العمل:</strong> <span id="valHours">يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً</span></p>
       </div>
       <div class="map-container">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.321!2d35.91!3d31.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU3JzAwLjAiTiAzNcKwNTQnMDAuMCJF!5e0!3m2!1sen!2sjo!4v1600000000000!5m2!1sen!2sjo" allowfullscreen="" loading="lazy"></iframe>
@@ -293,10 +312,210 @@
   </section>
 
   <footer>
-    <p>&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات</p>
+    <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات</p>
   </footer>
 
+  <!-- Translation & Form Script -->
   <script>
+    let currentLang = 'ar';
+
+    const translations = {
+      ar: {
+        topBarTitle: "مركز العضايله للعناية بالمركبات",
+        phoneLabel: "هاتف:",
+        brandTitle: "مركز العضايله للعناية بالمركبات",
+        btnWa: "واتساب",
+        btnFb: "فيسبوك",
+        heroTitle: "أفضل خدمة للعناية بسيارتك",
+        heroDesc: "نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.",
+        heroBtn: "احجز خدمتك الآن",
+        servicesHeading: "خدماتنا المتخصصة",
+        s1Title: "حماية النانو سيراميك",
+        s1Desc: "تقنية درع الحماية الكريستالي التي تمنح هيكل السيارة مقاومة عالية وتزيد من العمر الافتراضي لطلاء المركبة.",
+        s1f1: "حماية المينا من الأشعة فوق البنفسجية والأكسدة",
+        s1f2: "خاصية الهيدروفوبيك لمنع التصاق الماء والأتربة",
+        s1f3: "إعطاء لمعان وبريق كريستالي مستمر",
+        s2Title: "التلميع والبوليش الخارجي",
+        s2Desc: "معالجة متكاملة لطلاء السيارة لإرجاع لمعة الوكالة مع إزالة آثار الأكسدة الدقيقة ودوائر الغسيل.",
+        s2f1: "معالجة الخدوش السطحية ودوائر التلميع",
+        s2f2: "إعادة توحيد لون الطلاء وتصحيح العيوب",
+        s2f3: "تلميع الأضواء الأمامية لإعادة وضوحها",
+        s3Title: "التنظيف والتفصيل الداخلي (Detailing)",
+        s3Desc: "تنظيف وتعقيم عميق لكافة مكونات المقصورة الداخلية للمركبة مع العناية بكافة التفاصيل الصغيرة.",
+        s3f1: "تنظيف وتعقيم المقاعد بجهاز البخار",
+        s3f2: "إزالة البقع المستعصية والروائح الكريهة",
+        s3f3: "ترطيب وتغذية المقاعد الجلدية لحمايتها",
+        bookTitle: "📅 احجز موعدك الآن",
+        bookSub: "اختر الخدمة والوقت المناسب لك وسنتواصل معك فوراً لتأكيد الحجز",
+        lblCustName: "الاسم الكامل:",
+        phCustName: "أدخل اسمك",
+        lblCarModel: "نوع وموديل السيارة:",
+        phCarModel: "مثال: تويوتا كامري 2022",
+        lblService: "اختر الخدمة المطلوب حجزها:",
+        opt1: "حماية النانو سيراميك",
+        opt2: "التلميع والبوليش الخارجي",
+        opt3: "التنظيف والتفصيل الداخلي (Detailing)",
+        opt4: "العزل الحراري والتظليل",
+        opt5: "غسيل وتفصيل كامل للمركبة",
+        lblDate: "التاريخ المفضل للزيارة:",
+        btnSubmit: "📲 إرسال الحجز عبر الواتساب",
+        reviewsHeading: "آراء عملائنا الكرام",
+        rev1Text: '"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً."',
+        rev1Author: "- محمد الطراونة",
+        rev2Text: '"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."',
+        rev2Author: "- خالد المجالي",
+        rev3Text: '"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."',
+        rev3Author: "- عمر العبادي",
+        contactHeading: "موقعنا والتواصل المباشر",
+        lblMgr: "الإدارة المسؤولية:",
+        valMgr: "أحمد العضايلة (Ahmad Adaileh)",
+        lblPhone: "رقم الهاتف / الواتساب:",
+        lblAddr: "العنوان:",
+        valAddr: "الأردن",
+        lblHours: "ساعات العمل:",
+        valHours: "يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً",
+        footerText: "© جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات",
+        langBtnText: "English"
+      },
+      en: {
+        topBarTitle: "Adaileh Car Care Center",
+        phoneLabel: "Phone:",
+        brandTitle: "Adaileh Car Care Center",
+        btnWa: "WhatsApp",
+        btnFb: "Facebook",
+        heroTitle: "Premium Care for Your Vehicle",
+        heroDesc: "Providing top-tier polishing, nano-ceramic coating, and complete interior & exterior auto detailing by experienced specialists.",
+        heroBtn: "Book Your Service Now",
+        servicesHeading: "Our Specialized Services",
+        s1Title: "Nano Ceramic Protection",
+        s1Desc: "Crystal shield protection coating that provides high resistance against weather elements and enhances paint longevity.",
+        s1f1: "Protects clear coat from UV rays and oxidation",
+        s1f2: "Hydrophobic water & dirt repelling properties",
+        s1f3: "Delivers a deep, long-lasting mirror shine",
+        s2Title: "Exterior Paint Polish",
+        s2Desc: "Comprehensive paint correction process restoring showroom gloss while removing swirl marks and fine scratches.",
+        s2f1: "Treats light surface scratches & swirl marks",
+        s2f2: "Restores paint depth & color balance",
+        s2f3: "Headlight restoration & clarity revival",
+        s3Title: "Interior Auto Detailing",
+        s3Desc: "Deep cleaning and steam sanitization for all cabin components with attention to every fine detail.",
+        s3f1: "Deep steam cleaning & seat sanitization",
+        s3f2: "Tough stain removal & odor elimination",
+        s3f3: "Leather conditioning & protection treatment",
+        bookTitle: "📅 Book Your Appointment",
+        bookSub: "Select your service and preferred date, and we will contact you immediately to confirm.",
+        lblCustName: "Full Name:",
+        phCustName: "Enter your name",
+        lblCarModel: "Car Make & Model:",
+        phCarModel: "e.g. Toyota Camry 2022",
+        lblService: "Select Service:",
+        opt1: "Nano Ceramic Protection",
+        opt2: "Exterior Paint Polish",
+        opt3: "Interior Auto Detailing",
+        opt4: "Thermal Window Tinting",
+        opt5: "Full Car Wash & Detailing Package",
+        lblDate: "Preferred Visit Date:",
+        btnSubmit: "📲 Send Reservation via WhatsApp",
+        reviewsHeading: "Customer Reviews",
+        rev1Text: '"Exceptional work! My car looks brand new after the nano ceramic coating and polishing. Highly recommended!"',
+        rev1Author: "- Mohammad Al-Tarawneh",
+        rev2Text: '"The best car care center around. Immaculate interior detailing and right on schedule."',
+        rev2Author: "- Khaled Al-Majali",
+        rev3Text: '"Excellent service quality and very competitive prices compared to the premium products used."',
+        rev3Author: "- Omar Al-Abbadi",
+        contactHeading: "Location & Direct Contact",
+        lblMgr: "Management:",
+        valMgr: "Ahmad Adaileh",
+        lblPhone: "Phone / WhatsApp:",
+        lblAddr: "Address:",
+        valAddr: "Jordan",
+        lblHours: "Working Hours:",
+        valHours: "Daily from 9:00 AM to 9:00 PM",
+        footerText: "© All Rights Reserved - Adaileh Car Care Center",
+        langBtnText: "العربية"
+      }
+    };
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      const root = document.getElementById('htmlRoot');
+      const data = translations[currentLang];
+
+      root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+      root.setAttribute('lang', currentLang);
+
+      // Text updates
+      document.getElementById('topBarTitle').textContent = data.topBarTitle;
+      document.getElementById('phoneLabel').textContent = data.phoneLabel;
+      document.getElementById('brandTitle').textContent = data.brandTitle;
+      document.getElementById('btnWa').textContent = data.btnWa;
+      document.getElementById('btnFb').textContent = data.btnFb;
+      document.getElementById('heroTitle').textContent = data.heroTitle;
+      document.getElementById('heroDesc').textContent = data.heroDesc;
+      document.getElementById('heroBtn').textContent = data.heroBtn;
+      document.getElementById('servicesHeading').textContent = data.servicesHeading;
+      
+      document.getElementById('s1Title').textContent = data.s1Title;
+      document.getElementById('s1Desc').textContent = data.s1Desc;
+      document.getElementById('s1f1').textContent = data.s1f1;
+      document.getElementById('s1f2').textContent = data.s1f2;
+      document.getElementById('s1f3').textContent = data.s1f3;
+
+      document.getElementById('s2Title').textContent = data.s2Title;
+      document.getElementById('s2Desc').textContent = data.s2Desc;
+      document.getElementById('s2f1').textContent = data.s2f1;
+      document.getElementById('s2f2').textContent = data.s2f2;
+      document.getElementById('s2f3').textContent = data.s2f3;
+
+      document.getElementById('s3Title').textContent = data.s3Title;
+      document.getElementById('s3Desc').textContent = data.s3Desc;
+      document.getElementById('s3f1').textContent = data.s3f1;
+      document.getElementById('s3f2').textContent = data.s3f2;
+      document.getElementById('s3f3').textContent = data.s3f3;
+
+      document.getElementById('bookTitle').textContent = data.bookTitle;
+      document.getElementById('bookSub').textContent = data.bookSub;
+      document.getElementById('lblCustName').textContent = data.lblCustName;
+      document.getElementById('custName').placeholder = data.phCustName;
+      document.getElementById('lblCarModel').textContent = data.lblCarModel;
+      document.getElementById('carModel').placeholder = data.phCarModel;
+      document.getElementById('lblService').textContent = data.lblService;
+      
+      document.getElementById('opt1').textContent = data.opt1;
+      document.getElementById('opt1').value = data.opt1;
+      document.getElementById('opt2').textContent = data.opt2;
+      document.getElementById('opt2').value = data.opt2;
+      document.getElementById('opt3').textContent = data.opt3;
+      document.getElementById('opt3').value = data.opt3;
+      document.getElementById('opt4').textContent = data.opt4;
+      document.getElementById('opt4').value = data.opt4;
+      document.getElementById('opt5').textContent = data.opt5;
+      document.getElementById('opt5').value = data.opt5;
+
+      document.getElementById('lblDate').textContent = data.lblDate;
+      document.getElementById('btnSubmit').textContent = data.btnSubmit;
+
+      document.getElementById('reviewsHeading').textContent = data.reviewsHeading;
+      document.getElementById('rev1Text').textContent = data.rev1Text;
+      document.getElementById('rev1Author').textContent = data.rev1Author;
+      document.getElementById('rev2Text').textContent = data.rev2Text;
+      document.getElementById('rev2Author').textContent = data.rev2Author;
+      document.getElementById('rev3Text').textContent = data.rev3Text;
+      document.getElementById('rev3Author').textContent = data.rev3Author;
+
+      document.getElementById('contactHeading').textContent = data.contactHeading;
+      document.getElementById('lblMgr').textContent = data.lblMgr;
+      document.getElementById('valMgr').textContent = data.valMgr;
+      document.getElementById('lblPhone').textContent = data.lblPhone;
+      document.getElementById('lblAddr').textContent = data.lblAddr;
+      document.getElementById('valAddr').textContent = data.valAddr;
+      document.getElementById('lblHours').textContent = data.lblHours;
+      document.getElementById('valHours').textContent = data.valHours;
+
+      document.getElementById('footerText').textContent = data.footerText;
+      document.getElementById('langBtnText').textContent = data.langBtnText;
+    }
+
     function sendBooking(event) {
       event.preventDefault();
       const name = document.getElementById('custName').value;
@@ -304,7 +523,9 @@
       const service = document.getElementById('serviceType').value;
       const date = document.getElementById('bookingDate').value;
 
-      const message = `مرحباً مركز العضايله، أود حجز موعد:%0A- الاسم: ${name}%0A- السيارة: ${model}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`;
+      const message = currentLang === 'ar' 
+        ? `مرحباً مركز العضايله، أود حجز موعد:%0A- الاسم: ${name}%0A- السيارة: ${model}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`
+        : `Hello Adaileh Center, I would like to book an appointment:%0A- Name: ${name}%0A- Car: ${model}%0A- Service: ${service}%0A- Preferred Date: ${date}`;
       
       window.open(`https://wa.me/962776999555?text=${message}`, '_blank');
     }

@@ -6,15 +6,14 @@
   <title id="pageTitle">مركز العضايله للعناية بالمركبات | Adaileh Car Care Center</title>
   <style>
     :root {
-      --primary: #0A0F1D;
-      --secondary: #141C2E;
-      --accent: #DC2626;
-      --accent-hover: #B91C1C;
-      --metallic-blue: #2563EB;
+      --primary: #0A1128;
+      --secondary: #101F42;
+      --accent-blue: #0066FF;
+      --accent-cyan: #00D4FF;
       --silver: #E2E8F0;
       --light: #F8FAFC;
       --dark: #030712;
-      --border-glow: rgba(37, 99, 235, 0.25);
+      --card-border: rgba(0, 102, 255, 0.25);
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -23,12 +22,34 @@
     /* Top Floating Utility Bar */
     .floating-top-bar {
       position: absolute;
-      top: 1.5rem;
+      top: 1.2rem;
       right: 2rem;
       left: 2rem;
       z-index: 1000;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 4rem);
+    }
+
+    /* Logo explicitly positioned on the right */
+    .nav-logo-link {
+      order: 2;
+    }
+    .nav-logo {
+      height: 65px;
+      width: auto;
+      filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.8));
+      transition: transform 0.3s ease;
+      display: block;
+    }
+    .nav-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .top-left-controls {
+      order: 1;
+      display: flex;
       align-items: center;
       gap: 1rem;
     }
@@ -37,14 +58,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(10, 15, 29, 0.75);
+      background: rgba(10, 17, 40, 0.85);
       backdrop-filter: blur(10px);
       padding: 0.55rem 1.25rem;
       border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(0, 212, 255, 0.3);
       color: #fff;
       font-weight: bold;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     .floating-phone-box a {
@@ -57,7 +78,7 @@
     }
 
     .lang-btn {
-      background: rgba(20, 28, 46, 0.8);
+      background: rgba(16, 31, 66, 0.85);
       backdrop-filter: blur(10px);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.2);
@@ -73,33 +94,44 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .lang-btn:hover {
-      background-color: var(--accent);
-      border-color: var(--accent);
+      background-color: var(--accent-blue);
+      border-color: var(--accent-cyan);
     }
 
-    /* Hero Banner */
+    /* Hero Banner matching logo dark blue / cyan gradient shades */
     .hero { 
-      background: linear-gradient(180deg, rgba(3, 7, 18, 0.75) 0%, rgba(10, 15, 29, 0.95) 100%), 
+      background: linear-gradient(180deg, rgba(10, 17, 40, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%), 
                   url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
       color: white; 
       text-align: center; 
-      padding: 9.5rem 1rem 6.5rem 1rem; 
+      padding: 10.5rem 1rem 6.5rem 1rem; 
       position: relative;
     }
-    
-    .hero-logo {
-      width: 150px;
-      height: auto;
-      margin-bottom: 1.5rem;
-      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.9));
+
+    .hero h2 { 
+      font-size: 3.2rem; 
+      margin-bottom: 1rem; 
+      text-shadow: 0 4px 18px rgba(0,0,0,0.9); 
+      font-weight: 800; 
+      letter-spacing: -0.5px; 
     }
 
-    .hero h2 { font-size: 3.2rem; margin-bottom: 1rem; text-shadow: 0 4px 18px rgba(0,0,0,0.9); font-weight: 800; letter-spacing: -0.5px; }
-    .hero p { font-size: 1.25rem; max-width: 720px; margin: 0 auto 2.2rem auto; color: #CBD5E1; }
-    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .hero p { 
+      font-size: 1.25rem; 
+      max-width: 720px; 
+      margin: 0 auto 2.2rem auto; 
+      color: #CBD5E1; 
+    }
+
+    .hero-buttons { 
+      display: flex; 
+      gap: 1rem; 
+      justify-content: center; 
+      flex-wrap: wrap; 
+    }
     
     .btn-primary { 
-      background: linear-gradient(135deg, var(--accent) 0%, #991B1B 100%);
+      background: linear-gradient(135deg, var(--accent-blue) 0%, #0040A8 100%);
       color: white; 
       text-decoration: none; 
       padding: 1rem 2.8rem; 
@@ -107,14 +139,14 @@
       font-size: 1.1rem; 
       font-weight: bold; 
       display: inline-block; 
-      border: 1px solid rgba(255, 255, 255, 0.2); 
+      border: 1px solid rgba(0, 212, 255, 0.4); 
       cursor: pointer; 
-      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); 
+      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.5); 
       transition: all 0.3s ease; 
     }
     .btn-primary:hover { 
       transform: translateY(-3px); 
-      box-shadow: 0 6px 25px rgba(220, 38, 38, 0.6); 
+      box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7); 
     }
 
     /* Services Section */
@@ -135,8 +167,8 @@
     }
     .card:hover { 
       transform: translateY(-7px); 
-      border-color: var(--metallic-blue);
-      box-shadow: 0 15px 35px var(--border-glow);
+      border-color: var(--accent-blue);
+      box-shadow: 0 15px 35px var(--card-border);
     }
     
     .card-img-wrapper {
@@ -151,10 +183,12 @@
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      transition: transform 0.6s ease;
+      filter: contrast(1.15) brightness(0.9);
+      transition: transform 0.6s ease, filter 0.6s ease;
     }
     .card:hover .card-img {
       transform: scale(1.08);
+      filter: contrast(1.2) brightness(1);
     }
 
     .card-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
@@ -163,12 +197,12 @@
     .card ul { list-style-type: none; padding: 0; margin-top: auto; }
     .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.5rem; position: relative; padding-inline-start: 1.5rem; font-weight: 500; }
     
-    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
-    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
+    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent-blue); position: absolute; right: 0; font-weight: bold; }
+    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent-blue); position: absolute; left: 0; font-weight: bold; }
 
     /* Booking Form Section */
     .booking-section { background-color: #F1F5F9; padding: 5rem 2rem; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
-    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent); }
+    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent-blue); }
     .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
     .booking-container p { text-align: center; color: #64748B; margin-bottom: 2rem; }
     .form-group { margin-bottom: 1.2rem; }
@@ -181,8 +215,8 @@
     .reviews { background-color: var(--light); padding: 5rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
     .review-card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; }
-    [dir="rtl"] .review-card { border-right: 4px solid var(--metallic-blue); }
-    [dir="ltr"] .review-card { border-left: 4px solid var(--metallic-blue); }
+    [dir="rtl"] .review-card { border-right: 4px solid var(--accent-blue); }
+    [dir="ltr"] .review-card { border-left: 4px solid var(--accent-blue); }
     .stars { color: #F59E0B; margin-bottom: 0.5rem; font-size: 1.1rem; }
 
     /* Contact & Location */
@@ -190,7 +224,7 @@
     .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
     .contact-info { flex: 1; min-width: 280px; }
     .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
-    .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent); font-size: 1.3rem; text-decoration: none; }
+    .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-blue); font-size: 1.3rem; text-decoration: none; }
     .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; }
     iframe { width: 100%; height: 100%; border: 0; }
 
@@ -217,6 +251,20 @@
     .float-wa:hover { transform: scale(1.1); }
 
     footer { text-align: center; padding: 1.5rem; background-color: var(--dark); color: #94A3B8; font-size: 0.85rem; border-top: 1px solid #1E293B; }
+
+    /* Mobile Responsive Top Bar Tweaks */
+    @media(max-width: 768px) {
+      .floating-top-bar {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        right: 1rem;
+        left: 1rem;
+        width: calc(100% - 2rem);
+      }
+      .nav-logo-link { order: 1; }
+      .top-left-controls { order: 2; width: 100%; justify-content: center; flex-wrap: wrap; }
+    }
   </style>
 </head>
 <body>
@@ -224,21 +272,28 @@
   <!-- Floating WhatsApp Action Button -->
   <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
-  <!-- Top Floating Controls -->
+  <!-- Top Floating Overlay Header -->
   <div class="floating-top-bar">
-    <div class="floating-phone-box">
-      <span id="phoneLabel">💬 واتساب / هاتف:</span>
-      <a href="https://wa.me/962776999555" target="_blank">0776999555</a>
+    <!-- Utility Buttons (Phone & Language Switcher) on Left -->
+    <div class="top-left-controls">
+      <div class="floating-phone-box">
+        <span id="phoneLabel">💬 واتساب / هاتف:</span>
+        <a href="https://wa.me/962776999555" target="_blank">0776999555</a>
+      </div>
+
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="langBtnText">English</span>
+      </button>
     </div>
 
-    <button class="lang-btn" onclick="toggleLanguage()">
-      🌐 <span id="langBtnText">English</span>
-    </button>
+    <!-- Logo strictly pinned to the Right Corner -->
+    <a href="#" class="nav-logo-link">
+      <img src="logo.png" alt="Adaileh Car Care Center Logo" class="nav-logo">
+    </a>
   </div>
 
   <!-- Hero Section -->
   <section class="hero">
-    <img src="logo.png" alt="Adaileh Car Care Center Logo" class="hero-logo">
     <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
     <div class="hero-buttons">
@@ -251,10 +306,10 @@
     <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
       
-      <!-- Service 1: Ceramic Coating (Hydrophobic metallic gloss) -->
+      <!-- Service 1 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
+          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -267,10 +322,10 @@
         </div>
       </div>
 
-      <!-- Service 2: Exterior Paint Correction & Buffing -->
+      <!-- Service 2 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80" alt="Paint Correction Polish" class="card-img">
+          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Paint Correction Polish" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -283,10 +338,10 @@
         </div>
       </div>
 
-      <!-- Service 3: Interior Detailing & Leather Care -->
+      <!-- Service 3 -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Interior Leather Detailing" class="card-img">
+          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" alt="Interior Auto Detailing" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>
@@ -437,7 +492,7 @@
         valAddr: "الأردن",
         lblHours: "ساعات العمل:",
         valHours: "يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً",
-        footerText: "© جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات",
+        footerText: "© جميع الحقوق محفوظة - مركز العضايلة للعناية بالمركبات",
         langBtnText: "English"
       },
       en: {

@@ -6,19 +6,21 @@
   <title id="pageTitle">مركز العضايله للعناية بالمركبات | Adaileh Car Care Center</title>
   <style>
     :root {
-      --primary: #0B111E;
-      --secondary: #131C2E;
-      --accent: #E11D48;
-      --accent-hover: #BE123C;
+      --primary: #0A0F1D;
+      --secondary: #141C2E;
+      --accent: #DC2626;
+      --accent-hover: #B91C1C;
+      --metallic-blue: #2563EB;
       --silver: #E2E8F0;
       --light: #F8FAFC;
-      --dark: #050810;
+      --dark: #030712;
+      --border-glow: rgba(37, 99, 235, 0.25);
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background-color: var(--light); color: var(--dark); line-height: 1.6; position: relative; }
 
-    /* Top Floating Utility Bar (Transparent Overlay) */
+    /* Top Floating Utility Bar */
     .floating-top-bar {
       position: absolute;
       top: 1.5rem;
@@ -35,14 +37,14 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(11, 17, 30, 0.65);
-      backdrop-filter: blur(8px);
-      padding: 0.5rem 1.2rem;
+      background: rgba(10, 15, 29, 0.75);
+      backdrop-filter: blur(10px);
+      padding: 0.55rem 1.25rem;
       border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.15);
       color: #fff;
       font-weight: bold;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
 
     .floating-phone-box a {
@@ -50,17 +52,16 @@
       text-decoration: none;
       direction: ltr;
       display: inline-block;
-      font-size: 1rem;
-      font-weight: bold;
+      font-size: 1.05rem;
+      font-weight: 800;
     }
 
-    /* Language Switcher Button */
     .lang-btn {
-      background: rgba(19, 28, 46, 0.7);
-      backdrop-filter: blur(8px);
+      background: rgba(20, 28, 46, 0.8);
+      backdrop-filter: blur(10px);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 0.5rem 1rem;
+      padding: 0.55rem 1.1rem;
       border-radius: 30px;
       cursor: pointer;
       font-size: 0.85rem;
@@ -69,111 +70,131 @@
       align-items: center;
       gap: 0.4rem;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .lang-btn:hover {
       background-color: var(--accent);
       border-color: var(--accent);
     }
 
-    /* Hero Banner - Full Screen / Transparent Top */
+    /* Hero Banner */
     .hero { 
-      background: linear-gradient(180deg, rgba(5, 8, 16, 0.7) 0%, rgba(5, 8, 16, 0.95) 100%), 
-                  url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; 
+      background: linear-gradient(180deg, rgba(3, 7, 18, 0.75) 0%, rgba(10, 15, 29, 0.95) 100%), 
+                  url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
       color: white; 
       text-align: center; 
-      padding: 9rem 1rem 6rem 1rem; 
+      padding: 9.5rem 1rem 6.5rem 1rem; 
       position: relative;
     }
     
     .hero-logo {
-      width: 140px;
+      width: 150px;
       height: auto;
       margin-bottom: 1.5rem;
-      filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.8));
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.9));
     }
 
-    .hero h2 { font-size: 3.2rem; margin-bottom: 1rem; text-shadow: 0 4px 15px rgba(0,0,0,0.8); font-weight: 800; }
-    .hero p { font-size: 1.25rem; max-width: 720px; margin: 0 auto 2rem auto; color: #CBD5E1; }
+    .hero h2 { font-size: 3.2rem; margin-bottom: 1rem; text-shadow: 0 4px 18px rgba(0,0,0,0.9); font-weight: 800; letter-spacing: -0.5px; }
+    .hero p { font-size: 1.25rem; max-width: 720px; margin: 0 auto 2.2rem auto; color: #CBD5E1; }
     .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
     
     .btn-primary { 
-      background-color: var(--accent); 
+      background: linear-gradient(135deg, var(--accent) 0%, #991B1B 100%);
       color: white; 
       text-decoration: none; 
-      padding: 1rem 2.5rem; 
+      padding: 1rem 2.8rem; 
       border-radius: 30px; 
       font-size: 1.1rem; 
       font-weight: bold; 
       display: inline-block; 
-      border: none; 
+      border: 1px solid rgba(255, 255, 255, 0.2); 
       cursor: pointer; 
-      box-shadow: 0 4px 20px rgba(225, 29, 72, 0.5); 
-      transition: all 0.2s; 
+      box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4); 
+      transition: all 0.3s ease; 
     }
-    .btn-primary:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+    .btn-primary:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 6px 25px rgba(220, 38, 38, 0.6); 
+    }
 
     /* Services Section */
-    .services { padding: 4.5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .services { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     .services h3, .reviews h3 { text-align: center; font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--primary); font-weight: 800; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .card { background: white; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,0.06); overflow: hidden; display: flex; flex-direction: column; border: 1px solid #E2E8F0; transition: transform 0.3s; }
-    .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    
+    .card { 
+      background: #FFFFFF; 
+      border-radius: 16px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+      overflow: hidden; 
+      display: flex; 
+      flex-direction: column; 
+      border: 1px solid #E2E8F0; 
+      transition: all 0.3s ease; 
+    }
+    .card:hover { 
+      transform: translateY(-7px); 
+      border-color: var(--metallic-blue);
+      box-shadow: 0 15px 35px var(--border-glow);
+    }
     
     .card-img-wrapper {
       width: 100%;
-      height: 230px;
+      height: 240px;
       overflow: hidden;
       background-color: var(--primary);
+      position: relative;
     }
+
     .card-img { 
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      transition: transform 0.5s ease;
+      transition: transform 0.6s ease;
     }
     .card:hover .card-img {
       transform: scale(1.08);
     }
 
-    .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .card h4 { font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 0.5rem; font-weight: 700; }
-    .card p { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+    .card-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .card h4 { font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--primary); border-bottom: 2px solid #F1F5F9; padding-bottom: 0.6rem; font-weight: 700; }
+    .card p { color: #475569; font-size: 0.95rem; margin-bottom: 1.2rem; }
     .card ul { list-style-type: none; padding: 0; margin-top: auto; }
-    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.4rem; position: relative; padding-inline-start: 1.4rem; }
+    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.5rem; position: relative; padding-inline-start: 1.5rem; font-weight: 500; }
     
     [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
     [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent); position: absolute; left: 0; font-weight: bold; }
 
     /* Booking Form Section */
-    .booking-section { background-color: #F1F5F9; padding: 4.5rem 2rem; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
-    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.08); border-top: 5px solid var(--accent); }
+    .booking-section { background-color: #F1F5F9; padding: 5rem 2rem; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
+    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent); }
     .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
     .booking-container p { text-align: center; color: #64748B; margin-bottom: 2rem; }
     .form-group { margin-bottom: 1.2rem; }
     .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--secondary); }
-    .form-group input, .form-group select { width: 100%; padding: 0.85rem; border: 1px solid #CBD5E1; border-radius: 6px; font-size: 1rem; }
-    .btn-submit { width: 100%; background-color: #25D366; color: white; padding: 1rem; border: none; border-radius: 6px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+    .form-group input, .form-group select { width: 100%; padding: 0.85rem; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; }
+    .btn-submit { width: 100%; background-color: #25D366; color: white; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
     .btn-submit:hover { background-color: #1EB854; }
 
-    /* Reviews Section */
-    .reviews { background-color: var(--light); padding: 4.5rem 2rem; }
+    /* Customer Reviews */
+    .reviews { background-color: var(--light); padding: 5rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-    .review-card { background: white; padding: 1.8rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; }
-    [dir="rtl"] .review-card { border-right: 4px solid var(--accent); }
-    [dir="ltr"] .review-card { border-left: 4px solid var(--accent); }
+    .review-card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; }
+    [dir="rtl"] .review-card { border-right: 4px solid var(--metallic-blue); }
+    [dir="ltr"] .review-card { border-left: 4px solid var(--metallic-blue); }
     .stars { color: #F59E0B; margin-bottom: 0.5rem; font-size: 1.1rem; }
 
-    /* Contact & Map Section */
-    .contact-section { background-color: #fff; padding: 4.5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    /* Contact & Location */
+    .contact-section { background-color: #fff; padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
     .contact-info { flex: 1; min-width: 280px; }
     .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
     .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent); font-size: 1.3rem; text-decoration: none; }
-    .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 8px; overflow: hidden; }
+    .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; }
     iframe { width: 100%; height: 100%; border: 0; }
 
-    /* Floating WhatsApp Button (Bottom Corner) */
+    /* Floating WhatsApp Button */
     .float-wa { 
       position: fixed; 
       width: 60px; 
@@ -185,7 +206,7 @@
       border-radius: 50px; 
       text-align: center; 
       font-size: 32px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4); 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35); 
       z-index: 1000; 
       display: flex; 
       align-items: center; 
@@ -193,19 +214,17 @@
       text-decoration: none; 
       transition: transform 0.2s ease;
     }
-    .float-wa:hover {
-      transform: scale(1.1);
-    }
+    .float-wa:hover { transform: scale(1.1); }
 
-    footer { text-align: center; padding: 1.2rem; background-color: var(--dark); color: #94A3B8; font-size: 0.85rem; border-top: 1px solid #1E293B; }
+    footer { text-align: center; padding: 1.5rem; background-color: var(--dark); color: #94A3B8; font-size: 0.85rem; border-top: 1px solid #1E293B; }
   </style>
 </head>
 <body>
 
-  <!-- Floating WhatsApp Action Button (Bottom Left) -->
+  <!-- Floating WhatsApp Action Button -->
   <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="WhatsApp">💬</a>
 
-  <!-- Top Floating Overlay Bar (Transparent Header Controls) -->
+  <!-- Top Floating Controls -->
   <div class="floating-top-bar">
     <div class="floating-phone-box">
       <span id="phoneLabel">💬 واتساب / هاتف:</span>
@@ -217,14 +236,11 @@
     </button>
   </div>
 
-  <!-- Hero Section (Transparent Top Layout) -->
+  <!-- Hero Section -->
   <section class="hero">
-    <!-- Logo Centered Inside Hero Banner -->
     <img src="logo.png" alt="Adaileh Car Care Center Logo" class="hero-logo">
-
     <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
-    
     <div class="hero-buttons">
       <a href="#booking" class="btn-primary" id="heroBtn">احجز خدمتك الآن</a>
     </div>
@@ -235,10 +251,10 @@
     <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
       
-      <!-- Card 1: Nano Ceramic Protection -->
+      <!-- Service 1: Ceramic Coating (Hydrophobic metallic gloss) -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -251,10 +267,10 @@
         </div>
       </div>
 
-      <!-- Card 2: Exterior Paint Polish -->
+      <!-- Service 2: Exterior Paint Correction & Buffing -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="Exterior Polish" class="card-img">
+          <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=800&q=80" alt="Paint Correction Polish" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -267,10 +283,10 @@
         </div>
       </div>
 
-      <!-- Card 3: Interior Auto Detailing -->
+      <!-- Service 3: Interior Detailing & Leather Care -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Interior Detailing" class="card-img">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Interior Leather Detailing" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>
@@ -286,7 +302,7 @@
     </div>
   </section>
 
-  <!-- Interactive Booking Form Section -->
+  <!-- Booking Form Section -->
   <section class="booking-section" id="booking">
     <div class="booking-container">
       <h3 id="bookTitle">📅 احجز موعدك الآن</h3>

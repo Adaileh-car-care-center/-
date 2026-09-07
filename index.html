@@ -98,7 +98,7 @@
       border-color: var(--accent-cyan);
     }
 
-    /* Hero Banner matching logo dark blue / cyan gradient shades */
+    /* Hero Banner */
     .hero { 
       background: linear-gradient(180deg, rgba(10, 17, 40, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%), 
                   url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
@@ -153,7 +153,7 @@
     .services { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
     .services h3, .reviews h3 { text-align: center; font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--primary); font-weight: 800; }
     
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
     
     .card { 
       background: #FFFFFF; 
@@ -221,7 +221,7 @@
 
     /* Contact & Location */
     .contact-section { background-color: #fff; padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+    .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
     .contact-info { flex: 1; min-width: 280px; }
     .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
     .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-blue); font-size: 1.3rem; text-decoration: none; }
@@ -294,7 +294,7 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك</h2>
+    <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك في الكرك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
     <div class="hero-buttons">
       <a href="#booking" class="btn-primary" id="heroBtn">احجز خدمتك الآن</a>
@@ -424,17 +424,18 @@
       <div class="contact-info">
         <p><strong id="lblMgr">الإدارة المسؤولية:</strong> <span id="valMgr">أحمد العضايلة (Ahmad Adaileh)</span></p>
         <p><strong id="lblPhone">رقم الهاتف / الواتساب:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
-        <p><strong id="lblAddr">العنوان:</strong> <span id="valAddr">الأردن</span></p>
+        <p><strong id="lblAddr">العنوان:</strong> <span id="valAddr">الأردن - الكرك</span></p>
         <p><strong id="lblHours">ساعات العمل:</strong> <span id="valHours">يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً</span></p>
       </div>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3385.321!2d35.91!3d31.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU3JzAwLjAiTiAzNcKwNTQnMDAuMCJF!5e0!3m2!1sen!2sjo!4v1600000000000!5m2!1sen!2sjo" allowfullscreen="" loading="lazy"></iframe>
+        <!-- Google Map Embedded for Karak, Jordan -->
+        <iframe src="https://maps.google.com/maps?q=Karak,%20Jordan&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
   </section>
 
   <footer>
-    <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات</p>
+    <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك</p>
   </footer>
 
   <!-- Translation & Interactive Form Script -->
@@ -444,7 +445,7 @@
     const translations = {
       ar: {
         phoneLabel: "💬 واتساب / هاتف:",
-        heroTitle: "أفضل خدمة للعناية بسيارتك",
+        heroTitle: "أفضل خدمة للعناية بسيارتك في الكرك",
         heroDesc: "نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.",
         heroBtn: "احجز خدمتك الآن",
         servicesHeading: "خدماتنا المتخصصة",
@@ -489,15 +490,15 @@
         valMgr: "أحمد العضايلة (Ahmad Adaileh)",
         lblPhone: "رقم الهاتف / الواتساب:",
         lblAddr: "العنوان:",
-        valAddr: "الأردن",
+        valAddr: "الأردن - الكرك",
         lblHours: "ساعات العمل:",
         valHours: "يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً",
-        footerText: "© جميع الحقوق محفوظة - مركز العضايلة للعناية بالمركبات",
+        footerText: "© جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك",
         langBtnText: "English"
       },
       en: {
         phoneLabel: "💬 WhatsApp / Call:",
-        heroTitle: "Premium Care for Your Vehicle",
+        heroTitle: "Premium Care for Your Vehicle in Karak",
         heroDesc: "Providing top-tier polishing, nano-ceramic coating, and complete interior & exterior auto detailing by experienced specialists.",
         heroBtn: "Book Your Service Now",
         servicesHeading: "Our Specialized Services",
@@ -542,10 +543,10 @@
         valMgr: "Ahmad Adaileh",
         lblPhone: "Phone / WhatsApp:",
         lblAddr: "Address:",
-        valAddr: "Jordan",
+        valAddr: "Karak, Jordan",
         lblHours: "Working Hours:",
         valHours: "Daily from 9:00 AM to 9:00 PM",
-        footerText: "© All Rights Reserved - Adaileh Car Care Center",
+        footerText: "© All Rights Reserved - Adaileh Car Care Center - Karak",
         langBtnText: "العربية"
       }
     };
@@ -633,8 +634,8 @@
       const date = document.getElementById('bookingDate').value;
 
       const message = currentLang === 'ar' 
-        ? `مرحباً مركز العضايله، أود حجز موعد:%0A- الاسم: ${name}%0A- السيارة: ${model}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`
-        : `Hello Adaileh Center, I would like to book an appointment:%0A- Name: ${name}%0A- Car: ${model}%0A- Service: ${service}%0A- Preferred Date: ${date}`;
+        ? `مرحباً مركز العضايله (الكرك)، أود حجز موعد:%0A- الاسم: ${name}%0A- السيارة: ${model}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`
+        : `Hello Adaileh Center (Karak), I would like to book an appointment:%0A- Name: ${name}%0A- Car: ${model}%0A- Service: ${service}%0A- Preferred Date: ${date}`;
       
       window.open(`https://wa.me/962776999555?text=${message}`, '_blank');
     }

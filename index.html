@@ -3,299 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مركز العضايله للعناية بالمركبات</title>
+  <title>مركز العضايله للعناية بالمركبات - بإدارة أحمد العضايلة</title>
   <style>
     :root {
-      --primary: #1e293b;
+      --primary: #0f172a;
+      --secondary: #1e293b;
       --accent: #e11d48;
+      --accent-hover: #be123c;
       --light: #f8fafc;
-      --dark: #0f172a;
+      --dark: #020617;
     }
     
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
 
-    body {
-      background-color: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-    }
+    /* Top Bar */
+    .top-bar { background-color: var(--dark); color: #94a3b8; padding: 0.5rem 2rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; }
 
-    header {
-      background-color: var(--primary);
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
+    /* Header */
+    header { background-color: var(--secondary); color: #fff; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    header .logo-area h1 { font-size: 1.6rem; color: #ffffff; }
+    header .logo-area span { font-size: 0.9rem; color: #cbd5e1; }
+    .header-btns { display: flex; gap: 0.6rem; }
+    .btn-fb { background-color: #1877f2; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; }
+    .btn-wa { background-color: #25d366; color: white; text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 6px; font-weight: bold; }
 
-    header h1 {
-      font-size: 1.5rem;
-    }
+    /* Hero */
+    .hero { background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1400&q=80') center/cover; color: white; text-align: center; padding: 6rem 1rem; }
+    .hero h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.25rem; max-width: 650px; margin: 0 auto 2rem auto; color: #cbd5e1; }
+    .hero-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background-color: var(--accent); color: white; text-decoration: none; padding: 0.9rem 2.2rem; border-radius: 6px; font-size: 1.1rem; font-weight: bold; display: inline-block; }
 
-    .header-btns {
-      display: flex;
-      gap: 0.5rem;
-    }
+    /* Offers Section */
+    .offers { background: #fff1f2; padding: 3rem 2rem; text-align: center; border-bottom: 2px solid #fecdd3; }
+    .offers h3 { color: var(--accent); font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .offers p { font-size: 1.1rem; color: #9f1239; margin-bottom: 1.5rem; }
 
-    .btn-fb {
-      background-color: #1877f2;
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: bold;
-    }
+    /* Services */
+    .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .services h3, .reviews h3 { text-align: center; font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--primary); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 2rem; }
+    .card { background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); overflow: hidden; display: flex; flex-direction: column; }
+    .card-img { width: 100%; height: 200px; object-fit: cover; }
+    .card-content { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .card h4 { font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--primary); border-bottom: 2px solid var(--light); padding-bottom: 0.5rem; }
+    .card p { color: #475569; font-size: 0.95rem; margin-bottom: 1rem; }
+    .card ul { list-style-type: none; padding: 0; margin-top: auto; }
+    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.4rem; position: relative; padding-right: 1.2rem; }
+    .card ul li::before { content: "✓"; color: var(--accent); position: absolute; right: 0; font-weight: bold; }
 
-    .btn-wa {
+    /* Reviews */
+    .reviews { background-color: #f8fafc; padding: 4rem 2rem; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .review-card { background: white; padding: 1.8rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-right: 4px solid #25d366; }
+    .stars { color: #f59e0b; margin-bottom: 0.5rem; }
+
+    /* Contact */
+    .contact-section { background-color: #fff; padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+    .contact-info { flex: 1; min-width: 280px; }
+    .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
+    .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent); font-size: 1.3rem; text-decoration: none; }
+    .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 8px; overflow: hidden; }
+    iframe { width: 100%; height: 100%; border: 0; }
+
+    /* Floating WhatsApp Button */
+    .float-wa {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 25px;
+      left: 25px;
       background-color: #25d366;
-      color: white;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .hero {
-      background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
-                  url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1200&q=80') center/cover;
-      color: white;
+      color: #FFF;
+      border-radius: 50px;
       text-align: center;
-      padding: 5rem 1rem;
-    }
-
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
-      color: #cbd5e1;
-    }
-
-    .btn-primary {
-      background-color: var(--accent);
-      color: white;
-      text-decoration: none;
-      padding: 0.8rem 2rem;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      display: inline-block;
-    }
-
-    .services {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .services h3 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2.5rem;
-      color: var(--primary);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-    }
-
-    .card {
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-      text-align: right;
-      border-top: 5px solid var(--accent);
+      font-size: 30px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
     }
+    .float-wa:hover { background-color: #1eb854; }
 
-    .card h4 {
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
-      color: var(--primary);
-      border-bottom: 2px solid var(--light);
-      padding-bottom: 0.5rem;
-    }
-
-    .card p {
-      color: #475569;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-    }
-
-    .card ul {
-      list-style-type: none;
-      padding: 0;
-      margin-top: 0.5rem;
-    }
-
-    .card ul li {
-      font-size: 0.9rem;
-      color: #334155;
-      margin-bottom: 0.4rem;
-      position: relative;
-      padding-right: 1.2rem;
-    }
-
-    .card ul li::before {
-      content: "✓";
-      color: var(--accent);
-      position: absolute;
-      right: 0;
-      font-weight: bold;
-    }
-
-    /* Contact & Location Section */
-    .contact-section {
-      background-color: #fff;
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .contact-section h3 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: var(--primary);
-    }
-
-    .contact-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      justify-content: space-between;
-    }
-
-    .contact-info {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .contact-info p {
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-    }
-
-    .phone-number {
-      direction: ltr;
-      display: inline-block;
-      font-weight: bold;
-      color: var(--accent);
-    }
-
-    .map-container {
-      flex: 1;
-      min-width: 280px;
-      height: 320px;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.2rem;
-      background-color: var(--dark);
-      color: #94a3b8;
-      font-size: 0.85rem;
-    }
+    footer { text-align: center; padding: 1.2rem; background-color: var(--dark); color: #94a3b8; font-size: 0.85rem; }
   </style>
 </head>
 <body>
 
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="تواصل عبر الواتساب">
+    💬
+  </a>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div>مركز العضايله للعناية بالمركبات - بإدارة أحمد العضايلة</div>
+    <div>هاتف: <a href="tel:0776999555" style="color: #cbd5e1; text-decoration: none; direction: ltr; display: inline-block;">0776999555</a></div>
+  </div>
+
   <header>
-    <h1>مركز العضايله للعناية بالمركبات</h1>
+    <div class="logo-area">
+      <h1>مركز العضايله للعناية بالمركبات</h1>
+      <span>إدارة: أحمد العضايلة (Ahmad Adaileh)</span>
+    </div>
     <div class="header-btns">
-      <a href="https://wa.me/00962700000000" target="_blank" class="btn-wa">واتساب</a>
+      <a href="https://wa.me/962776999555" target="_blank" class="btn-wa">واتساب</a>
       <a href="https://www.facebook.com/p/%25D9%2585%25D8%25B1%25D9%2583%25D8%25B2-%25D8%25A7%25D9%2584%25D8%25B9%25D8%25B6%25D8%25A7%25D9%258A%25D9%2584%25D9%2587-%25D9%2584%25D9%2584%25D8%25B9%25D9%2586%25D8%25A7%25D9%258A%25D9%2587-%25D8%25A8%25D8%25A7%25D9%2584%25D9%2585%25D8%25B1%25D9%2583%25D8%25A8%25D8%25A7%25D8%25AA-61559734410888/" target="_blank" class="btn-fb">فيسبوك</a>
     </div>
   </header>
 
   <section class="hero">
     <h2>أفضل خدمة للعناية بسيارتك</h2>
-    <p>نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان.</p>
-    <a href="tel:00962700000000" class="btn-primary">اتصل بنا الآن</a>
+    <p>نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
+    <div class="hero-buttons">
+      <a href="tel:0776999555" class="btn-primary">اتصل بنا: 0776999555</a>
+      <a href="https://wa.me/962776999555" target="_blank" class="btn-wa" style="padding: 0.9rem 2.2rem; font-size: 1.1rem;">احجز موعدك عبر الواتساب</a>
+    </div>
   </section>
 
+  <!-- Special Offers Banner -->
+  <section class="offers">
+    <h3>🔥 عرض خاص من مركز العضايله 🔥</h3>
+    <p>احصل على خدمة تلميع ساطع متكاملة + غسيل وتطبيش مجاناً عند استفسارك اليوم!</p>
+    <a href="https://wa.me/962776999555?text=أريد%20الاستفادة%20من%20العرض%20الخاص" target="_blank" class="btn-primary">استفسر عن العرض الآن</a>
+  </section>
+
+  <!-- Services -->
   <section class="services">
     <h3>خدماتنا المتخصصة</h3>
     <div class="grid">
       
-      <!-- Service 1 -->
       <div class="card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=600&q=80" alt="نانو سيراميك" class="card-img">
+        <div class="card-content">
           <h4>حماية النانو سيراميك</h4>
           <p>تقنية درع الحماية الكريستالي التي تمنح هيكل السيارة مقاومة عالية وتزيد من العمر الافتراضي لطلاء المركبة.</p>
           <ul>
             <li>حماية المينا من الأشعة فوق البنفسجية والأكسدة</li>
-            <li>خاصية الهيدروفوبيك لعدم التضاق الماء والأتربة</li>
+            <li>خاصية الهيدروفوبيك لمنع التصاق الماء والأتربة</li>
             <li>إعطاء لمعان وبريق كريستالي مستمر</li>
-            <li>حماية ضد الخدوش السطحية والعوامل الجوية</li>
           </ul>
         </div>
       </div>
 
-      <!-- Service 2 -->
       <div class="card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=600&q=80" alt="تلميع وبوليش" class="card-img">
+        <div class="card-content">
           <h4>التلميع والبوليش الخارجي</h4>
           <p>معالجة متكاملة لطلاء السيارة لإرجاع لمعة الوكالة مع إزالة آثار الأكسدة الدقيقة ودوائر الغسيل.</p>
           <ul>
-            <li>معالجة الخدوش السطحية ودوائر التلميع (Swirl Marks)</li>
+            <li>معالجة الخدوش السطحية ودوائر التلميع</li>
             <li>إعادة توحيد لون الطلاء وتصحيح العيوب</li>
-            <li>إضافة طبقة واكس لحماية وإبراز وعمق اللون</li>
-            <li>تلميع الأضواء الأمامية (الأضوية) وإعادة وضوحها</li>
+            <li>تلميع الأضواء الأمامية لإعادة وضوحها</li>
           </ul>
         </div>
       </div>
 
-      <!-- Service 3 -->
       <div class="card">
-        <div>
+        <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=600&q=80" alt="تنظيف وتفصيل داخلي" class="card-img">
+        <div class="card-content">
           <h4>التنظيف والتفصيل الداخلي (Detailing)</h4>
-          <p>تنظيف وتعقيم عميق لكافة مكونات المقصورة الداخلية للمركبة مع العناية بكافة التفاصيل الصغرية.</p>
+          <p>تنظيف وتعقيم عميق لكافة مكونات المقصورة الداخلية للمركبة مع العناية بكافة التفاصيل الصغيرة.</p>
           <ul>
-            <li>تنظيف وتعقيم المقاعد (جلد أو قماش) بجهاز البخار</li>
+            <li>تنظيف وتعقيم المقاعد بجهاز البخار</li>
             <li>إزالة البقع المستعصية والروائح الكريهة</li>
-            <li>تنظيف وتلميع التابلوه والفرش والأبواب والبطانات</li>
-            <li>ترطيب وتغذية المقاعد الجلدية لحمايتها من التشقق</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="card">
-        <div>
-          <h4>العزل الحراري والتظليل</h4>
-          <p>أفلام تظليل حراري عالية الجودة لتوفير الراحة التامة أثناء القيادة وحماية المقصورة.</p>
-          <ul>
-            <li>عزل نسبة عالية من الحرارة والأشعة الضارة</li>
-            <li>حماية مكونات التابلوه والفرش من التلف والجفاف</li>
-            <li>زيادة كفاءة التكييف داخل السيارة</li>
-            <li>توفر درجات شفافية متعددة ومصرحة</li>
+            <li>ترطيب وتغذية المقاعد الجلدية لحمايتها</li>
           </ul>
         </div>
       </div>
@@ -303,13 +179,37 @@
     </div>
   </section>
 
-  <!-- Contact & Map Section -->
+  <!-- Customer Reviews -->
+  <section class="reviews">
+    <h3>آراء عملائنا الكرام</h3>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً من السيد أحمد العضايلة."</p>
+        <br><strong>- محمد الطراونة</strong>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."</p>
+        <br><strong>- خالد المجالي</strong>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."</p>
+        <br><strong>- عمر العبادي</strong>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Map -->
   <section class="contact-section">
-    <h3>موقعنا والتواصل</h3>
+    <h3>موقعنا والتواصل المباشر</h3>
     <div class="contact-container">
       <div class="contact-info">
-        <p><strong>العنوان:</strong> الأردن (اكتب اسم الشارع/المنطقة هنا)</p>
-        <p><strong>رقم الهاتف:</strong> <a href="tel:0700000000" class="phone-number">07X-XXXXXXX</a></p>
+        <p><strong>المالك والمدير المسؤول:</strong> أحمد العضايلة (Ahmad Adaileh)</p>
+        <p><strong>رقم الهاتف المباشر:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
+        <p><strong>الواتساب:</strong> <a href="https://wa.me/962776999555" target="_blank" style="color:#25d366; font-weight:bold;">اضغط هنا للمحادثة المباشرة</a></p>
+        <p><strong>العنوان:</strong> الأردن</p>
         <p><strong>ساعات العمل:</strong> يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً</p>
       </div>
       <div class="map-container">
@@ -319,7 +219,7 @@
   </section>
 
   <footer>
-    <p>&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات</p>
+    <p>&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات (إدارة أحمد العضايلة)</p>
   </footer>
 
 </body>

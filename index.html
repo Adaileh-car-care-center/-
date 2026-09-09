@@ -94,10 +94,10 @@
       border-color: var(--accent-green);
     }
 
-    /* Hero Banner with Dark Shade & Green Race Car Vibe (Adjusted to a neon green-lit sports car aesthetic) */
+    /* Hero Banner (Using local file header-bg.jpg) */
     .hero { 
       background: linear-gradient(180deg, rgba(3, 7, 18, 0.82) 0%, rgba(5, 12, 26, 0.95) 100%), 
-                  url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
+                  url('header-bg.jpg') center/cover no-repeat; 
       color: white; 
       text-align: center; 
       padding: 11rem 1rem 7rem 1rem; 
@@ -262,27 +262,33 @@
     .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; }
     iframe { width: 100%; height: 100%; border: 0; }
 
-    /* Floating WhatsApp Button */
-    .float-wa { 
-      position: fixed; 
-      width: 60px; 
-      height: 60px; 
-      bottom: 25px; 
-      left: 25px; 
-      background-color: #25D366; 
-      color: #FFF; 
-      border-radius: 50px; 
-      text-align: center; 
-      font-size: 32px; 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.35); 
-      z-index: 1000; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      text-decoration: none; 
+    /* Floating Action Buttons Container (WhatsApp & Facebook) */
+    .floating-actions {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .float-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
       transition: transform 0.2s ease;
     }
-    .float-wa:hover { transform: scale(1.1); }
+    .float-btn:hover { transform: scale(1.1); }
+    .float-wa { background-color: #25D366; color: #FFF; }
+    .float-fb { background-color: #1877F2; color: #FFF; font-size: 26px; font-weight: bold; }
 
     footer { text-align: center; padding: 1.5rem; background-color: var(--dark); color: #94A3B8; font-size: 0.85rem; border-top: 1px solid #1E293B; }
 
@@ -303,8 +309,11 @@
 </head>
 <body>
 
-  <!-- Floating WhatsApp Action Button -->
-  <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-wa" target="_blank" title="WhatsApp">💬</a>
+  <!-- Floating Action Buttons (WhatsApp & Facebook) -->
+  <div class="floating-actions">
+    <a href="https://wa.me/962776999555?text=مرحباً%20مركز%20العضايله،%20أود%20الاستفسار%20عن%20خدمات%20العناية%20بالسيارات" class="float-btn float-wa" target="_blank" title="WhatsApp">💬</a>
+    <a href="https://www.facebook.com/YOUR_FACEBOOK_PAGE" class="float-btn float-fb" target="_blank" title="Facebook">f</a>
+  </div>
 
   <!-- Top Floating Overlay Header -->
   <div class="floating-top-bar">
@@ -326,7 +335,7 @@
     </a>
   </div>
 
-  <!-- Hero Section with Green-themed neon sports car -->
+  <!-- Hero Section -->
   <section class="hero">
     <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك في الكرك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
@@ -361,7 +370,7 @@
       <!-- Service 1: Nano Ceramic -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="firstphoto" alt="Nano Ceramic Coating" class="card-img">
+          <img src="service1.jpg" alt="Nano Ceramic Coating" class="card-img" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -377,7 +386,7 @@
       <!-- Service 2: Paint Polish & Correction -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="secondphoto" alt="Paint Correction Polish" class="card-img">
+          <img src="service2.jpg" alt="Paint Correction Polish" class="card-img" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -393,7 +402,7 @@
       <!-- Service 3: Interior Detailing -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="thridphoto" alt="Interior Auto Detailing" class="card-img">
+          <img src="service3.jpg" alt="Interior Auto Detailing" class="card-img" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>
@@ -496,7 +505,7 @@
     <h3 id="contactHeading">موقعنا والتواصل المباشر</h3>
     <div class="contact-container">
       <div class="contact-info">
-        <p><strong id="lblMgr">الملكية والإدارة:</strong> <span id="valMgr">أحمد العضايلة (Ahmad Adaileh)</span></p>
+        <p><strong id="lblMgr">المالك / Ownership:</strong> <span id="valMgr">أحمد العضايلة (Ahmad Adaileh)</span></p>
         <p><strong id="lblPhone">رقم الهاتف / الواتساب:</strong> <a href="tel:0776999555" class="phone-number">0776999555</a></p>
         <p><strong id="lblEmail">البريد الإلكتروني:</strong> <a href="mailto:hmadadaileh1995@gmail.com" class="email-link">hmadadaileh1995@gmail.com</a></p>
         <p><strong id="lblAddr">العنوان:</strong> <span id="valAddr">الأردن - الكرك</span></p>
@@ -510,7 +519,7 @@
   </section>
 
   <footer>
-    <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة | hmadadaileh1995@gmail.com</p>
+    <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة (Ownership: Ahmad Adaileh) | hmadadaileh1995@gmail.com</p>
   </footer>
 
   <!-- Translation & Interactive Form Script -->
@@ -571,7 +580,7 @@
         rev3Text: '"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."',
         rev3Author: "- عمر العبادي",
         contactHeading: "موقعنا والتواصل المباشر",
-        lblMgr: "الملكية والإدارة:",
+        lblMgr: "المالك / Ownership:",
         valMgr: "أحمد العضايلة (Ahmad Adaileh)",
         lblPhone: "رقم الهاتف / الواتساب:",
         lblEmail: "البريد الإلكتروني:",
@@ -579,7 +588,7 @@
         valAddr: "الأردن - الكرك",
         lblHours: "ساعات العمل:",
         valHours: "يومياً من الساعة 9:00 صباحاً حتى 9:00 مساءً",
-        footerText: "© جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة | hmadadaileh1995@gmail.com",
+        footerText: "© جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة (Ownership: Ahmad Adaileh) | hmadadaileh1995@gmail.com",
         langBtnText: "English"
       },
       en: {
@@ -635,7 +644,7 @@
         rev3Text: '"Excellent service quality and very competitive prices compared to the premium products used."',
         rev3Author: "- Omar Al-Abbadi",
         contactHeading: "Location & Direct Contact",
-        lblMgr: "Ownership & Management:",
+        lblMgr: "Ownership:",
         valMgr: "Ahmad Adaileh",
         lblPhone: "Phone / WhatsApp:",
         lblEmail: "Email Address:",
@@ -643,7 +652,7 @@
         valAddr: "Karak, Jordan",
         lblHours: "Working Hours:",
         valHours: "Daily from 9:00 AM to 9:00 PM",
-        footerText: "© All Rights Reserved - Adaileh Car Care Center - Karak | Owned by Ahmad Adaileh | hmadadaileh1995@gmail.com",
+        footerText: "© All Rights Reserved - Adaileh Car Care Center - Karak | Ownership: Ahmad Adaileh | hmadadaileh1995@gmail.com",
         langBtnText: "العربية"
       }
     };

@@ -146,7 +146,7 @@
       box-shadow: 0 6px 25px rgba(0, 255, 102, 0.6); 
     }
 
-    /* Futuristic Racing HUD Statistics Bar */
+    /* Futuristic Racing HUD Statistics Bar (Top & Bottom Floating Look) */
     .stats-bar {
       background: #030712;
       padding: 3rem 1.5rem;
@@ -154,6 +154,15 @@
       overflow: hidden;
       border-top: 1px solid rgba(0, 255, 102, 0.2);
       border-bottom: 1px solid rgba(0, 255, 102, 0.2);
+    }
+    .stats-bar.floating-hud-box {
+      max-width: 1200px;
+      margin: -50px auto 3rem auto;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+      position: relative;
+      border: 1px solid rgba(0, 255, 102, 0.3);
     }
     .stats-bar::before {
       content: "";
@@ -197,15 +206,6 @@
       border-color: var(--accent-green);
       transform: translateY(-4px);
       box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
-    }
-    .hud-tag {
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--accent-green);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-      display: block;
     }
     .stat-item h4 {
       font-size: 2.8rem;
@@ -352,6 +352,10 @@
       }
       .nav-logo-link { order: 1; }
       .top-left-controls { order: 2; width: 100%; justify-content: center; flex-wrap: wrap; }
+      .stats-bar.floating-hud-box {
+        margin: -30px 1rem 2rem 1rem;
+        width: auto;
+      }
     }
   </style>
 </head>
@@ -392,21 +396,18 @@
     </div>
   </section>
 
-  <!-- Futuristic Racing HUD Statistics Bar -->
-  <section class="stats-bar">
+  <!-- Futuristic Racing HUD Statistics Bar (Floating Style Right After Hero) -->
+  <section class="stats-bar floating-hud-box">
     <div class="stats-grid">
       <div class="stat-item">
-        <span class="hud-tag">// TELEMETRY: COMPLETED</span>
         <h4 id="stat1">+1500</h4>
         <p id="stat1Text">سيارة تم العناية بها</p>
       </div>
       <div class="stat-item">
-        <span class="hud-tag">// GRADE: CERTIFIED</span>
         <h4 id="stat2">100%</h4>
         <p id="stat2Text">مواد أصلية ومضمونة</p>
       </div>
       <div class="stat-item">
-        <span class="hud-tag">// TRACK RECORD: PRO</span>
         <h4 id="stat3">+5</h4>
         <p id="stat3Text">سنوات من الخبرة والتميز</p>
       </div>
@@ -569,6 +570,24 @@
     </div>
   </section>
 
+  <!-- Futuristic Racing HUD Statistics Bar (Floating Style Repeated at the End) -->
+  <section class="stats-bar floating-hud-box" style="margin: 3rem auto -50px auto; z-index: 5;">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <h4>+1500</h4>
+        <p id="stat1TextEnd">سيارة تم العناية بها</p>
+      </div>
+      <div class="stat-item">
+        <h4>100%</h4>
+        <p id="stat2TextEnd">مواد أصلية ومضمونة</p>
+      </div>
+      <div class="stat-item">
+        <h4>+5</h4>
+        <p id="stat3TextEnd">سنوات من الخبرة والتميز</p>
+      </div>
+    </div>
+  </section>
+
   <footer>
     <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة (Ownership: Ahmad Adaileh) | hmadadaileh1995@gmail.com</p>
   </footer>
@@ -724,6 +743,9 @@
       document.getElementById('stat1Text').textContent = data.stat1Text;
       document.getElementById('stat2Text').textContent = data.stat2Text;
       document.getElementById('stat3Text').textContent = data.stat3Text;
+      document.getElementById('stat1TextEnd').textContent = data.stat1Text;
+      document.getElementById('stat2TextEnd').textContent = data.stat2Text;
+      document.getElementById('stat3TextEnd').textContent = data.stat3Text;
 
       document.getElementById('servicesHeading').textContent = data.servicesHeading;
       

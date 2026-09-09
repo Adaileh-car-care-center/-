@@ -94,7 +94,7 @@
       border-color: var(--accent-green);
     }
 
-    /* Hero Banner (Using local file HEADERIMAGE.png) */
+    /* Hero Banner */
     .hero { 
       background: linear-gradient(180deg, rgba(3, 7, 18, 0.82) 0%, rgba(5, 12, 26, 0.95) 100%), 
                   url('HEADERIMAGE.png') center/cover no-repeat; 
@@ -102,7 +102,6 @@
       text-align: center; 
       padding: 11rem 1rem 7rem 1rem; 
       position: relative;
-      box-shadow: inset 0 -20px 30px rgba(3, 7, 18, 0.6);
     }
 
     .hero h2 { 
@@ -147,13 +146,31 @@
       box-shadow: 0 6px 25px rgba(0, 255, 102, 0.6); 
     }
 
-    /* Stats Counter Bar Section */
+    /* Futuristic Racing-Inspired Telemetry & Carbon Bar */
     .stats-bar {
-      background: var(--secondary);
+      background: #050b14;
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.08) 0%, transparent 70%),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
       border-top: 2px solid var(--accent-green);
       border-bottom: 2px solid var(--accent-green);
-      padding: 2rem 1rem;
+      padding: 2.2rem 1rem;
       color: white;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(0, 255, 102, 0.1);
+    }
+    /* Racing telemetry accent stripe */
+    .stats-bar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-green), #ffffff, var(--accent-green), transparent);
     }
     .stats-grid {
       max-width: 1200px;
@@ -162,16 +179,39 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
       text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item {
+      background: rgba(10, 17, 40, 0.6);
+      border: 1px solid rgba(0, 255, 102, 0.2);
+      border-radius: 8px;
+      padding: 1rem;
+      backdrop-filter: blur(5px);
+      transform: skewX(-4deg);
+      transition: all 0.3s ease;
+    }
+    .stat-item:hover {
+      border-color: var(--accent-green);
+      box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+    }
+    .stat-item > * {
+      transform: skewX(4deg); /* Un-skew text content */
     }
     .stat-item h4 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       color: var(--accent-green);
-      margin-bottom: 0.3rem;
-      font-weight: 800;
+      margin-bottom: 0.2rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
     }
     .stat-item p {
-      color: #CBD5E1;
-      font-size: 1rem;
+      color: #94A3B8;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
     }
 
     /* Services Section */
@@ -210,6 +250,7 @@
       object-fit: cover; 
       filter: contrast(1.15) brightness(0.95);
       transition: transform 0.6s ease, filter 0.6s ease;
+      will-change: transform;
     }
     .card:hover .card-img {
       transform: scale(1.08);
@@ -331,11 +372,11 @@
 
     <!-- Logo strictly pinned to the Right Corner -->
     <a href="#" class="nav-logo-link">
-      <img src="logo.png.jpg" alt="Adaileh Car Care Center Logo" class="nav-logo">
+      <img src="logo.png.jpg" alt="Adaileh Car Care Center Logo" class="nav-logo" width="70" height="70">
     </a>
   </div>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (HEADERIMAGE.png) -->
   <section class="hero">
     <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك في الكرك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
@@ -344,7 +385,7 @@
     </div>
   </section>
 
-  <!-- Statistics Counter Bar -->
+  <!-- Futuristic Racing-Inspired Statistics Bar -->
   <section class="stats-bar">
     <div class="stats-grid">
       <div class="stat-item">
@@ -362,7 +403,7 @@
     </div>
   </section>
 
-  <!-- Services Section -->
+  <!-- Services Section (Optimized with explicit width/height & fetchpriority) -->
   <section class="services">
     <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
@@ -370,7 +411,7 @@
       <!-- Service 1: Nano Ceramic -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service1.jpg" alt="Nano Ceramic Coating" class="card-img" loading="lazy">
+          <img src="service1.jpg" alt="Nano Ceramic Coating" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -386,7 +427,7 @@
       <!-- Service 2: Paint Polish & Correction -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service2.jpg" alt="Paint Correction Polish" class="card-img" loading="lazy">
+          <img src="service2.jpg" alt="Paint Correction Polish" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -402,7 +443,7 @@
       <!-- Service 3: Interior Detailing -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service3.jpg" alt="Interior Auto Detailing" class="card-img" loading="lazy">
+          <img src="service3.jpg" alt="Interior Auto Detailing" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>

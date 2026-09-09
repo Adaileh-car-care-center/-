@@ -6,18 +6,19 @@
   <title id="pageTitle">مركز العضايله للعناية بالمركبات - الكرك | Adaileh Car Care Center</title>
   <style>
     :root {
-      --primary: #0A1128;
-      --secondary: #101F42;
-      --accent-green: #00FF66;
-      --accent-green-dark: #00CC52;
+      --bg-deep: #050811;
+      --bg-card: #0A0F1D;
+      --accent-red: #FF1E1E;
+      --accent-red-glow: rgba(255, 30, 30, 0.4);
+      --accent-cyan: #00E5FF;
       --silver: #E2E8F0;
       --light: #F8FAFC;
-      --dark: #030712;
-      --card-border: rgba(0, 255, 102, 0.3);
+      --dark: #020408;
+      --border-glow: rgba(255, 30, 30, 0.3);
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background-color: var(--light); color: var(--dark); line-height: 1.6; position: relative; }
+    body { background-color: var(--bg-deep); color: #fff; line-height: 1.6; position: relative; overflow-x: hidden; }
 
     /* Top Floating Utility Bar */
     .floating-top-bar {
@@ -34,7 +35,7 @@
 
     .nav-logo-link { order: 2; }
     .nav-logo {
-      height: 70px;
+      height: 65px;
       width: auto;
       filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.8));
       transition: transform 0.3s ease;
@@ -53,18 +54,18 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(10, 17, 40, 0.85);
+      background: rgba(10, 15, 29, 0.85);
       backdrop-filter: blur(10px);
       padding: 0.55rem 1.25rem;
-      border-radius: 30px;
-      border: 1px solid rgba(0, 255, 102, 0.4);
+      border-radius: 4px;
+      border: 1px solid var(--accent-red);
       color: #fff;
       font-weight: bold;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 4px 20px rgba(255, 30, 30, 0.2);
     }
 
     .floating-phone-box a {
-      color: var(--accent-green);
+      color: var(--accent-cyan);
       text-decoration: none;
       direction: ltr;
       display: inline-block;
@@ -73,12 +74,12 @@
     }
 
     .lang-btn {
-      background: rgba(16, 31, 66, 0.85);
+      background: rgba(10, 15, 29, 0.85);
       backdrop-filter: blur(10px);
       color: #fff;
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 0.55rem 1.1rem;
-      border-radius: 30px;
+      border-radius: 4px;
       cursor: pointer;
       font-size: 0.85rem;
       font-weight: bold;
@@ -89,34 +90,42 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .lang-btn:hover {
-      background-color: var(--accent-green);
-      color: var(--dark);
-      border-color: var(--accent-green);
+      background-color: var(--accent-red);
+      border-color: var(--accent-red);
     }
 
-    /* Hero Banner */
+    /* Hero Banner - Racing Dark Mode Style */
     .hero { 
-      background: linear-gradient(180deg, rgba(3, 7, 18, 0.82) 0%, rgba(5, 12, 26, 0.95) 100%), 
+      background: linear-gradient(180deg, rgba(5, 8, 17, 0.7) 0%, rgba(5, 8, 17, 0.95) 100%), 
                   url('HEADERIMAGE.png') center/cover no-repeat; 
       color: white; 
       text-align: center; 
-      padding: 11rem 1rem 7rem 1rem; 
+      padding: 12rem 1rem 8rem 1rem; 
       position: relative;
+      border-bottom: 2px solid var(--accent-red);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      background: linear-gradient(to top, var(--bg-deep), transparent);
     }
 
     .hero h2 { 
-      font-size: 3.2rem; 
+      font-size: 3.5rem; 
       margin-bottom: 1rem; 
-      text-shadow: 0 4px 20px rgba(0,0,0,0.9); 
-      font-weight: 800; 
+      text-shadow: 0 4px 25px rgba(0,0,0,0.9), 0 0 20px var(--accent-red-glow); 
+      font-weight: 900; 
       letter-spacing: -0.5px; 
+      text-transform: uppercase;
     }
 
     .hero p { 
-      font-size: 1.25rem; 
+      font-size: 1.2rem; 
       max-width: 720px; 
       margin: 0 auto 2.2rem auto; 
-      color: #CBD5E1; 
+      color: #94A3B8; 
     }
 
     .hero-buttons { 
@@ -127,52 +136,43 @@
     }
     
     .btn-primary { 
-      background: linear-gradient(135deg, var(--accent-green) 0%, #00B347 100%);
-      color: var(--dark); 
+      background: linear-gradient(135deg, var(--accent-red) 0%, #B30000 100%);
+      color: #fff; 
       text-decoration: none; 
       padding: 1rem 2.8rem; 
-      border-radius: 30px; 
+      border-radius: 4px; 
       font-size: 1.1rem; 
       font-weight: 800; 
       display: inline-block; 
-      border: 1px solid rgba(0, 255, 102, 0.6); 
+      border: 1px solid rgba(255, 30, 30, 0.6); 
       cursor: pointer; 
-      box-shadow: 0 4px 20px rgba(0, 255, 102, 0.4); 
+      box-shadow: 0 4px 25px var(--accent-red-glow); 
       transition: all 0.3s ease; 
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
     .btn-primary:hover { 
       transform: translateY(-3px); 
-      background: linear-gradient(135deg, #1aff75, var(--accent-green));
-      box-shadow: 0 6px 25px rgba(0, 255, 102, 0.6); 
+      background: linear-gradient(135deg, #ff3838, var(--accent-red));
+      box-shadow: 0 6px 30px rgba(255, 30, 30, 0.8); 
     }
 
-    /* Futuristic Racing HUD Statistics Bar (Top & Bottom Floating Look) */
+    /* Futuristic Racing HUD Statistics Bar */
     .stats-bar {
-      background: #030712;
-      padding: 3rem 1.5rem;
+      background: var(--bg-deep);
+      padding: 2rem 1.5rem;
       position: relative;
-      overflow: hidden;
-      border-top: 1px solid rgba(0, 255, 102, 0.2);
-      border-bottom: 1px solid rgba(0, 255, 102, 0.2);
     }
     .stats-bar.floating-hud-box {
       max-width: 1200px;
-      margin: -50px auto 3rem auto;
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      margin: -40px auto 3rem auto;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       z-index: 10;
       position: relative;
-      border: 1px solid rgba(0, 255, 102, 0.3);
-    }
-    .stats-bar::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: 
-        linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
+      border: 1px solid rgba(255, 30, 30, 0.3);
+      background: rgba(10, 15, 29, 0.95);
+      backdrop-filter: blur(10px);
     }
     .stats-grid {
       max-width: 1200px;
@@ -184,9 +184,9 @@
       z-index: 2;
     }
     .stat-item {
-      background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
-      border: 1px solid rgba(0, 255, 102, 0.25);
-      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(16, 24, 48, 0.9) 0%, rgba(5, 8, 17, 0.95) 100%);
+      border: 1px solid rgba(255, 30, 30, 0.2);
+      border-radius: 6px;
       padding: 1.8rem;
       position: relative;
       overflow: hidden;
@@ -198,14 +198,14 @@
       content: "";
       position: absolute;
       top: 0; right: 0;
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, transparent 50%, var(--accent-green) 50%);
-      opacity: 0.7;
+      width: 35px; height: 35px;
+      background: linear-gradient(135deg, transparent 50%, var(--accent-red) 50%);
+      opacity: 0.8;
     }
     .stat-item:hover {
-      border-color: var(--accent-green);
+      border-color: var(--accent-red);
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
+      box-shadow: 0 10px 30px var(--accent-red-glow);
     }
     .stat-item h4 {
       font-size: 2.8rem;
@@ -213,7 +213,7 @@
       margin-bottom: 0.3rem;
       font-weight: 900;
       letter-spacing: 1px;
-      text-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+      text-shadow: 0 0 15px rgba(255, 30, 30, 0.4);
     }
     .stat-item p {
       color: #94A3B8;
@@ -222,32 +222,41 @@
     }
 
     /* Services Section */
-    .services { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .services h3, .reviews h3, .why-us h3 { text-align: center; font-size: 2.2rem; margin-bottom: 2.5rem; color: var(--primary); font-weight: 800; }
+    .services { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .services h3, .reviews h3, .why-us h3, .contact-section h3 { 
+      text-align: center; 
+      font-size: 2.4rem; 
+      margin-bottom: 3rem; 
+      color: #fff; 
+      font-weight: 900; 
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 20px rgba(255, 30, 30, 0.3);
+    }
     
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
     
     .card { 
-      background: #FFFFFF; 
-      border-radius: 16px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+      background: var(--bg-card); 
+      border-radius: 8px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4); 
       overflow: hidden; 
       display: flex; 
       flex-direction: column; 
-      border: 1px solid #E2E8F0; 
+      border: 1px solid rgba(255, 255, 255, 0.08); 
       transition: all 0.3s ease; 
     }
     .card:hover { 
       transform: translateY(-7px); 
-      border-color: var(--accent-green);
-      box-shadow: 0 15px 35px var(--card-border);
+      border-color: var(--accent-red);
+      box-shadow: 0 15px 35px var(--accent-red-glow);
     }
     
     .card-img-wrapper {
       width: 100%;
-      height: 200px;
+      height: 220px;
       overflow: hidden;
-      background-color: var(--primary);
+      background-color: var(--dark);
       position: relative;
     }
 
@@ -255,60 +264,64 @@
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      filter: contrast(1.15) brightness(0.95);
+      filter: contrast(1.2) brightness(0.9);
       transition: transform 0.6s ease, filter 0.6s ease;
       will-change: transform;
     }
     .card:hover .card-img {
       transform: scale(1.08);
-      filter: contrast(1.2) brightness(1.05);
+      filter: contrast(1.25) brightness(1.05);
     }
 
-    .card-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .card h4 { font-size: 1.35rem; margin-bottom: 0.8rem; color: var(--primary); border-bottom: 2px solid #F1F5F9; padding-bottom: 0.6rem; font-weight: 700; }
-    .card p { color: #475569; font-size: 0.95rem; margin-bottom: 1.2rem; }
+    .card-content { padding: 2rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .card h4 { font-size: 1.4rem; margin-bottom: 0.8rem; color: #fff; border-bottom: 2px solid rgba(255, 30, 30, 0.3); padding-bottom: 0.6rem; font-weight: 800; }
+    .card p { color: #94A3B8; font-size: 0.95rem; margin-bottom: 1.2rem; }
     .card ul { list-style-type: none; padding: 0; margin-top: auto; }
-    .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.5rem; position: relative; padding-inline-start: 1.5rem; font-weight: 500; }
+    .card ul li { font-size: 0.9rem; color: #CBD5E1; margin-bottom: 0.6rem; position: relative; padding-inline-start: 1.5rem; font-weight: 500; }
     
-    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent-green-dark); position: absolute; right: 0; font-weight: bold; }
-    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent-green-dark); position: absolute; left: 0; font-weight: bold; }
+    [dir="rtl"] .card ul li::before { content: "⚡"; color: var(--accent-red); position: absolute; right: 0; font-size: 0.8rem; top: 2px; }
+    [dir="ltr"] .card ul li::before { content: "⚡"; color: var(--accent-red); position: absolute; left: 0; font-size: 0.8rem; top: 2px; }
 
     /* Why Choose Us Section */
-    .why-us { background-color: #E2E8F0; padding: 5rem 2rem; }
+    .why-us { background-color: rgba(10, 15, 29, 0.6); padding: 5rem 2rem; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
     .why-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
-    .why-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); text-align: center; border-bottom: 4px solid var(--accent-green); }
+    .why-card { background: var(--bg-card); padding: 2.2rem; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); text-align: center; border-bottom: 4px solid var(--accent-red); border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s ease; }
+    .why-card:hover { transform: translateY(-5px); border-color: var(--accent-red); }
     .why-card span { font-size: 2.5rem; display: inline-block; margin-bottom: 1rem; }
-    .why-card h4 { font-size: 1.2rem; color: var(--primary); margin-bottom: 0.6rem; font-weight: 700; }
-    .why-card p { color: #64748B; font-size: 0.9rem; }
+    .why-card h4 { font-size: 1.25rem; color: #fff; margin-bottom: 0.6rem; font-weight: 800; }
+    .why-card p { color: #94A3B8; font-size: 0.92rem; }
 
     /* Booking Form Section */
-    .booking-section { background-color: #F1F5F9; padding: 5rem 2rem; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
-    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent-green); }
-    .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
-    .booking-container p { text-align: center; color: #64748B; margin-bottom: 2rem; }
+    .booking-section { background-color: var(--bg-deep); padding: 5rem 2rem; }
+    .booking-container { max-width: 650px; margin: 0 auto; background: var(--bg-card); padding: 2.5rem; border-radius: 8px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); border-top: 5px solid var(--accent-red); border: 1px solid rgba(255,255,255,0.08); }
+    .booking-container h3 { text-align: center; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; font-weight: 900; text-transform: uppercase; }
+    .booking-container p { text-align: center; color: #94A3B8; margin-bottom: 2rem; }
     .form-group { margin-bottom: 1.2rem; }
-    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--secondary); }
-    .form-group input, .form-group select { width: 100%; padding: 0.85rem; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; }
-    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(0,255,102,0.15); }
-    .btn-submit { width: 100%; background-color: #25D366; color: white; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
+    .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #CBD5E1; }
+    .form-group input, .form-group select { width: 100%; padding: 0.85rem; background: #050811; border: 1px solid rgba(255,255,255,0.15); border-radius: 4px; font-size: 1rem; color: #fff; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-red); box-shadow: 0 0 0 3px var(--accent-red-glow); }
+    .btn-submit { width: 100%; background-color: #25D366; color: white; padding: 1rem; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); text-transform: uppercase; letter-spacing: 1px; }
     .btn-submit:hover { background-color: #1EB854; }
 
     /* Customer Reviews */
-    .reviews { background-color: var(--light); padding: 5rem 2rem; }
+    .reviews { background-color: rgba(10, 15, 29, 0.4); padding: 5rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
-    .review-card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; }
-    [dir="rtl"] .review-card { border-right: 4px solid var(--accent-green); }
-    [dir="ltr"] .review-card { border-left: 4px solid var(--accent-green); }
-    .stars { color: #F59E0B; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .review-card { background: var(--bg-card); padding: 2rem; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.06); transition: transform 0.3s ease; }
+    .review-card:hover { transform: translateY(-4px); border-color: rgba(255,30,30,0.4); }
+    [dir="rtl"] .review-card { border-right: 4px solid var(--accent-red); }
+    [dir="ltr"] .review-card { border-left: 4px solid var(--accent-red); }
+    .stars { color: #F59E0B; margin-bottom: 0.8rem; font-size: 1.1rem; }
+    .review-card p { color: #CBD5E1; font-size: 0.95rem; }
+    .review-card strong { color: #fff; display: inline-block; margin-top: 1rem; }
 
     /* Contact & Location */
-    .contact-section { background-color: #fff; padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
+    .contact-section { background-color: var(--bg-deep); padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .contact-container { display: flex; flex-wrap: wrap; gap: 2.5rem; justify-content: space-between; align-items: center; background: var(--bg-card); padding: 2.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
     .contact-info { flex: 1; min-width: 280px; }
-    .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
-    .phone-number, .email-link { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-green-dark); font-size: 1.2rem; text-decoration: none; }
-    .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; }
-    iframe { width: 100%; height: 100%; border: 0; }
+    .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; color: #CBD5E1; }
+    .phone-number, .email-link { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-cyan); font-size: 1.2rem; text-decoration: none; }
+    .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+    iframe { width: 100%; height: 100%; border: 0; filter: invert(90%) hue-rotate(180deg); }
 
     /* Floating Action Buttons Container (WhatsApp & Facebook) */
     .floating-actions {
@@ -324,10 +337,10 @@
     .float-btn {
       width: 60px;
       height: 60px;
-      border-radius: 50px;
+      border-radius: 50%;
       text-align: center;
       font-size: 28px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -338,7 +351,7 @@
     .float-wa { background-color: #25D366; color: #FFF; }
     .float-fb { background-color: #1877F2; color: #FFF; font-size: 26px; font-weight: bold; }
 
-    footer { text-align: center; padding: 1.5rem; background-color: var(--dark); color: #94A3B8; font-size: 0.85rem; border-top: 1px solid #1E293B; }
+    footer { text-align: center; padding: 2rem; background-color: #020408; color: #64748B; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); }
 
     /* Mobile Responsive Top Bar Tweaks */
     @media(max-width: 768px) {
@@ -356,6 +369,7 @@
         margin: -30px 1rem 2rem 1rem;
         width: auto;
       }
+      .hero h2 { font-size: 2.3rem; }
     }
   </style>
 </head>
@@ -400,15 +414,15 @@
   <section class="stats-bar floating-hud-box">
     <div class="stats-grid">
       <div class="stat-item">
-        <h4 id="stat1">+1500</h4>
+        <h4>+1500</h4>
         <p id="stat1Text">سيارة تم العناية بها</p>
       </div>
       <div class="stat-item">
-        <h4 id="stat2">100%</h4>
+        <h4>100%</h4>
         <p id="stat2Text">مواد أصلية ومضمونة</p>
       </div>
       <div class="stat-item">
-        <h4 id="stat3">+5</h4>
+        <h4>+5</h4>
         <p id="stat3Text">سنوات من الخبرة والتميز</p>
       </div>
     </div>
@@ -571,7 +585,7 @@
   </section>
 
   <!-- Futuristic Racing HUD Statistics Bar (Floating Style Repeated at the End) -->
-  <section class="stats-bar floating-hud-box" style="margin: 3rem auto -50px auto; z-index: 5;">
+  <section class="stats-bar floating-hud-box" style="margin: 3rem auto -40px auto; z-index: 5;">
     <div class="stats-grid">
       <div class="stat-item">
         <h4>+1500</h4>

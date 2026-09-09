@@ -146,71 +146,78 @@
       box-shadow: 0 6px 25px rgba(0, 255, 102, 0.6); 
     }
 
-    /* Futuristic Racing-Inspired Telemetry & Carbon Bar */
+    /* Futuristic Racing HUD Statistics Bar */
     .stats-bar {
-      background: #050b14;
-      background-image: 
-        radial-gradient(circle at 50% 50%, rgba(0, 255, 102, 0.08) 0%, transparent 70%),
-        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-      background-size: 100% 100%, 30px 30px, 30px 30px;
-      border-top: 2px solid var(--accent-green);
-      border-bottom: 2px solid var(--accent-green);
-      padding: 2.2rem 1rem;
-      color: white;
+      background: #030712;
+      padding: 3rem 1.5rem;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 25px rgba(0, 255, 102, 0.1);
+      border-top: 1px solid rgba(0, 255, 102, 0.2);
+      border-bottom: 1px solid rgba(0, 255, 102, 0.2);
     }
-    /* Racing telemetry accent stripe */
     .stats-bar::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--accent-green), #ffffff, var(--accent-green), transparent);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(rgba(0, 255, 102, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 255, 102, 0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
     }
     .stats-grid {
       max-width: 1200px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
-      text-align: center;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
       position: relative;
       z-index: 2;
     }
     .stat-item {
-      background: rgba(10, 17, 40, 0.6);
-      border: 1px solid rgba(0, 255, 102, 0.2);
-      border-radius: 8px;
-      padding: 1rem;
-      backdrop-filter: blur(5px);
-      transform: skewX(-4deg);
+      background: linear-gradient(135deg, rgba(10, 17, 40, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+      border: 1px solid rgba(0, 255, 102, 0.25);
+      border-radius: 12px;
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 0 100%);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
       transition: all 0.3s ease;
+    }
+    .stat-item::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, transparent 50%, var(--accent-green) 50%);
+      opacity: 0.7;
     }
     .stat-item:hover {
       border-color: var(--accent-green);
-      box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0, 255, 102, 0.2);
     }
-    .stat-item > * {
-      transform: skewX(4deg); /* Un-skew text content */
+    .hud-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      display: block;
     }
     .stat-item h4 {
-      font-size: 2.4rem;
-      color: var(--accent-green);
-      margin-bottom: 0.2rem;
+      font-size: 2.8rem;
+      color: #FFFFFF;
+      margin-bottom: 0.3rem;
       font-weight: 900;
       letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(0, 255, 102, 0.4);
+      text-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
     }
     .stat-item p {
       color: #94A3B8;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-size: 0.95rem;
       font-weight: 600;
     }
 
@@ -238,7 +245,7 @@
     
     .card-img-wrapper {
       width: 100%;
-      height: 240px;
+      height: 200px;
       overflow: hidden;
       background-color: var(--primary);
       position: relative;
@@ -385,25 +392,28 @@
     </div>
   </section>
 
-  <!-- Futuristic Racing-Inspired Statistics Bar -->
+  <!-- Futuristic Racing HUD Statistics Bar -->
   <section class="stats-bar">
     <div class="stats-grid">
       <div class="stat-item">
+        <span class="hud-tag">// TELEMETRY: COMPLETED</span>
         <h4 id="stat1">+1500</h4>
         <p id="stat1Text">سيارة تم العناية بها</p>
       </div>
       <div class="stat-item">
+        <span class="hud-tag">// GRADE: CERTIFIED</span>
         <h4 id="stat2">100%</h4>
         <p id="stat2Text">مواد أصلية ومضمونة</p>
       </div>
       <div class="stat-item">
+        <span class="hud-tag">// TRACK RECORD: PRO</span>
         <h4 id="stat3">+5</h4>
         <p id="stat3Text">سنوات من الخبرة والتميز</p>
       </div>
     </div>
   </section>
 
-  <!-- Services Section (Optimized with explicit width/height & fetchpriority) -->
+  <!-- Services Section -->
   <section class="services">
     <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
@@ -411,7 +421,7 @@
       <!-- Service 1: Nano Ceramic -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service1.jpg" alt="Nano Ceramic Coating" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
+          <img src="firstphoto1.png" alt="Nano Ceramic Coating" class="card-img" width="400" height="200" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -427,7 +437,7 @@
       <!-- Service 2: Paint Polish & Correction -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service2.jpg" alt="Paint Correction Polish" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
+          <img src="secondphoto2.png" alt="Paint Correction Polish" class="card-img" width="400" height="200" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -443,7 +453,7 @@
       <!-- Service 3: Interior Detailing -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="service3.jpg" alt="Interior Auto Detailing" class="card-img" width="400" height="240" loading="lazy" fetchpriority="low">
+          <img src="thirdphoto3.png" alt="Interior Auto Detailing" class="card-img" width="400" height="200" loading="lazy">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>

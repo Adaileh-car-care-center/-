@@ -14,6 +14,9 @@
       --accent-green: #38EF7D;
       --accent-green-light: #86EFAC;
       --accent-green-glow: rgba(56, 239, 125, 0.35);
+      --accent-red: #FF6B6B;
+      --accent-red-light: #FF8787;
+      --accent-red-glow: rgba(255, 107, 107, 0.4);
       --silver: #E2E8F0;
       --light: #F8FAFC;
       --dark: #020403;
@@ -136,28 +139,30 @@
       gap: 1rem; 
       justify-content: center; 
       flex-wrap: wrap; 
+      perspective: 1000px;
     }
     
+    /* Book Now Light Red Button with Mouse Floating Tilt */
     .btn-primary { 
-      background: linear-gradient(135deg, var(--accent-gold) 0%, #AA820A 100%);
-      color: #050706; 
+      background: linear-gradient(135deg, var(--accent-red) 0%, #C92A2A 100%);
+      color: #fff; 
       text-decoration: none; 
       padding: 1rem 2.8rem; 
       border-radius: 50px; 
       font-size: 1.1rem; 
       font-weight: 800; 
       display: inline-block; 
-      border: 1px solid rgba(212, 175, 55, 0.6); 
+      border: 1px solid rgba(255, 107, 107, 0.6); 
       cursor: pointer; 
-      box-shadow: 0 4px 25px var(--accent-gold-glow); 
-      transition: all 0.3s ease; 
+      box-shadow: 0 4px 25px var(--accent-red-glow); 
+      transition: transform 0.1s ease-out, background 0.3s ease, box-shadow 0.3s ease; 
       text-transform: uppercase;
       letter-spacing: 1px;
+      will-change: transform;
     }
     .btn-primary:hover { 
-      transform: translateY(-3px); 
-      background: linear-gradient(135deg, var(--accent-gold-light), var(--accent-gold));
-      box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6); 
+      background: linear-gradient(135deg, var(--accent-red-light), var(--accent-red));
+      box-shadow: 0 8px 35px rgba(255, 107, 107, 0.6); 
     }
 
     /* Luxurious Curved Organic Badge Shape */
@@ -218,10 +223,12 @@
       letter-spacing: 1px;
       text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     }
+    /* Set text under stats to pure white as requested */
     .stat-item p {
-      color: #94A3B8;
-      font-size: 0.95rem;
-      font-weight: 600;
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.5);
     }
 
     /* Services Section */
@@ -333,7 +340,7 @@
       stroke-linejoin: round;
     }
     .why-card h4 { font-size: 1.25rem; color: #fff; margin-bottom: 0.6rem; font-weight: 800; }
-    .why-card p { color: #94A3B8; font-size: 0.92rem; }
+    .why-card p { color: #ffffff; font-size: 0.95rem; font-weight: 500; text-shadow: 0 1px 4px rgba(0,0,0,0.4); }
 
     /* Booking Form Section */
     .booking-section { background-color: var(--bg-deep); padding: 5rem 2rem; }
@@ -448,7 +455,7 @@
     <h2 id="heroTitle">أفضل خدمة للعناية بسيارتك في الكرك</h2>
     <p id="heroDesc">نقدم أفضل خدمات التلميع، النانو سيراميك، وتنظيف المركبات الداخلي والخارجي بأعلى جودة وإتقان بأيدي متخصصين.</p>
     <div class="hero-buttons">
-      <a href="#booking" class="btn-primary" id="heroBtn">احجز خدمتك الآن</a>
+      <a href="#booking" class="btn-primary" id="heroBtn" data-magnetic>احجز خدمتك الآن</a>
     </div>
   </section>
 
@@ -526,9 +533,9 @@
     </div>
   </section>
 
-  <!-- Why Choose Us Section with Sophisticated SVG Icons -->
+  <!-- Why Choose Us Section with Full Center Name Heading -->
   <section class="why-us">
-    <h3 id="whyHeading">لماذا اختيار مركز العضايله؟</h3>
+    <h3 id="whyHeading">لماذا اختيار مركز العضايله للعناية بالمركبات؟</h3>
     <div class="why-grid">
       
       <div class="why-card">
@@ -635,29 +642,11 @@
     </div>
   </section>
 
-  <!-- Footer Stats Bar -->
-  <section class="stats-bar floating-hud-box" style="margin: 3rem auto -40px auto; z-index: 5;">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <h4>+1500</h4>
-        <p id="stat1TextEnd">سيارة تم العناية بها</p>
-      </div>
-      <div class="stat-item">
-        <h4>100%</h4>
-        <p id="stat2TextEnd">مواد أصلية ومضمونة</p>
-      </div>
-      <div class="stat-item">
-        <h4>+5</h4>
-        <p id="stat3TextEnd">سنوات من الخبرة والتميز</p>
-      </div>
-    </div>
-  </section>
-
   <footer>
     <p id="footerText">&copy; جميع الحقوق محفوظة - مركز العضايله للعناية بالمركبات - الكرك | ملكية أحمد العضايلة (Ownership: Ahmad Adaileh) | hmadadaileh1995@gmail.com</p>
   </footer>
 
-  <!-- Translation & Interactive Form Script -->
+  <!-- Translation, Interactive Form, and Magnetic Mouse-Following Effect Script -->
   <script>
     let currentLang = 'ar';
 
@@ -686,7 +675,7 @@
         s3f1: "تنظيف وتعقيم المقاعد بجهاز البخار",
         s3f2: "إزالة البقع المستعصية والروائح الكريهة",
         s3f3: "ترطيب وتغذية المقاعد الجلدية لحمايتها",
-        whyHeading: "لماذا اختيار مركز العضايله؟",
+        whyHeading: "لماذا اختيار مركز العضايله للعناية بالمركبات؟",
         w1Title: "جودة مواد عالية",
         w1Desc: "نستخدم أرقى وأفضل المواد العالمية المعتمدة عالمياً لحماية طلاء السيارات.",
         w2Title: "فريق معتمد بشهادات عالمية",
@@ -750,7 +739,7 @@
         s3f1: "Deep steam cleaning & seat sanitization",
         s3f2: "Tough stain removal & odor elimination",
         s3f3: "Leather conditioning & protection treatment",
-        whyHeading: "Why Choose Adaileh Center?",
+        whyHeading: "Why Choose Adaileh Car Care Center?",
         w1Title: "Premium Product Quality",
         w1Desc: "We use the finest internationally certified products to protect vehicle finishes.",
         w2Title: "Certified Expert Specialists",
@@ -800,7 +789,6 @@
       root.setAttribute('lang', currentLang);
       root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
 
-      // Update text elements safely
       document.getElementById('pageTitle').innerText = currentLang === 'ar' ? "مركز العضايله للعناية بالمركبات - الكرك | Adaileh Car Care Center" : "Adaileh Car Care Center - Karak | Premium Vehicle Care";
       document.getElementById('phoneLabel').innerText = t.phoneLabel;
       document.getElementById('heroTitle').innerText = t.heroTitle;
@@ -877,9 +865,6 @@
       document.getElementById('lblHours').innerText = t.lblHours;
       document.getElementById('valHours').innerText = t.valHours;
 
-      document.getElementById('stat1TextEnd').innerText = t.stat1Text;
-      document.getElementById('stat2TextEnd').innerText = t.stat2Text;
-      document.getElementById('stat3TextEnd').innerText = t.stat3Text;
       document.getElementById('footerText').innerHTML = t.footerText;
       document.getElementById('langBtnText').innerText = t.langBtnText;
     }
@@ -899,6 +884,22 @@
       }
 
       window.open(`https://wa.me/962776999555?text=${msg}`, '_blank');
+    }
+
+    // Mouse-following 3D tilt / floating effect for the Book Now button
+    const magneticBtn = document.querySelector('[data-magnetic]');
+    if (magneticBtn) {
+      magneticBtn.addEventListener('mousemove', (e) => {
+        const rect = magneticBtn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        magneticBtn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.05)`;
+      });
+
+      magneticBtn.addEventListener('mouseleave', () => {
+        magneticBtn.style.transform = 'translate(0px, 0px) scale(1)';
+      });
     }
   </script>
 </body>

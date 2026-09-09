@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title id="pageTitle">مركز العضايله للعناية بالمركبات | Adaileh Car Care Center</title>
+  <title id="pageTitle">مركز العضايله للعناية بالمركبات - الكرك | Adaileh Car Care Center</title>
   <style>
     :root {
       --primary: #0A1128;
       --secondary: #101F42;
-      --accent-blue: #0066FF;
-      --accent-cyan: #00D4FF;
+      --accent-green: #00FF66;
+      --accent-green-dark: #00CC52;
       --silver: #E2E8F0;
       --light: #F8FAFC;
       --dark: #030712;
-      --card-border: rgba(0, 102, 255, 0.25);
+      --card-border: rgba(0, 255, 102, 0.3);
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
@@ -37,7 +37,7 @@
       order: 2;
     }
     .nav-logo {
-      height: 65px;
+      height: 70px;
       width: auto;
       filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.8));
       transition: transform 0.3s ease;
@@ -62,14 +62,14 @@
       backdrop-filter: blur(10px);
       padding: 0.55rem 1.25rem;
       border-radius: 30px;
-      border: 1px solid rgba(0, 212, 255, 0.3);
+      border: 1px solid rgba(0, 255, 102, 0.4);
       color: #fff;
       font-weight: bold;
       box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     .floating-phone-box a {
-      color: #25D366;
+      color: var(--accent-green);
       text-decoration: none;
       direction: ltr;
       display: inline-block;
@@ -94,14 +94,15 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
     .lang-btn:hover {
-      background-color: var(--accent-blue);
-      border-color: var(--accent-cyan);
+      background-color: var(--accent-green);
+      color: var(--dark);
+      border-color: var(--accent-green);
     }
 
     /* Hero Banner */
     .hero { 
       background: linear-gradient(180deg, rgba(10, 17, 40, 0.88) 0%, rgba(3, 7, 18, 0.96) 100%), 
-                  url('https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
+                  url('https://images.unsplash.com/photo-1607860108855-64b2dc7907f8?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
       color: white; 
       text-align: center; 
       padding: 10.5rem 1rem 6.5rem 1rem; 
@@ -131,22 +132,23 @@
     }
     
     .btn-primary { 
-      background: linear-gradient(135deg, var(--accent-blue) 0%, #0040A8 100%);
-      color: white; 
+      background: linear-gradient(135deg, var(--accent-green) 0%, #00B347 100%);
+      color: var(--dark); 
       text-decoration: none; 
       padding: 1rem 2.8rem; 
       border-radius: 30px; 
       font-size: 1.1rem; 
-      font-weight: bold; 
+      font-weight: 800; 
       display: inline-block; 
-      border: 1px solid rgba(0, 212, 255, 0.4); 
+      border: 1px solid rgba(0, 255, 102, 0.6); 
       cursor: pointer; 
-      box-shadow: 0 4px 20px rgba(0, 102, 255, 0.5); 
+      box-shadow: 0 4px 20px rgba(0, 255, 102, 0.4); 
       transition: all 0.3s ease; 
     }
     .btn-primary:hover { 
       transform: translateY(-3px); 
-      box-shadow: 0 6px 25px rgba(0, 212, 255, 0.7); 
+      background: linear-gradient(135deg, #1aff75, var(--accent-green));
+      box-shadow: 0 6px 25px rgba(0, 255, 102, 0.6); 
     }
 
     /* Services Section */
@@ -167,7 +169,7 @@
     }
     .card:hover { 
       transform: translateY(-7px); 
-      border-color: var(--accent-blue);
+      border-color: var(--accent-green);
       box-shadow: 0 15px 35px var(--card-border);
     }
     
@@ -183,12 +185,12 @@
       width: 100%; 
       height: 100%; 
       object-fit: cover; 
-      filter: contrast(1.15) brightness(0.9);
+      filter: contrast(1.15) brightness(0.95);
       transition: transform 0.6s ease, filter 0.6s ease;
     }
     .card:hover .card-img {
       transform: scale(1.08);
-      filter: contrast(1.2) brightness(1);
+      filter: contrast(1.2) brightness(1.05);
     }
 
     .card-content { padding: 1.8rem; display: flex; flex-direction: column; flex-grow: 1; }
@@ -197,17 +199,18 @@
     .card ul { list-style-type: none; padding: 0; margin-top: auto; }
     .card ul li { font-size: 0.9rem; color: #334155; margin-bottom: 0.5rem; position: relative; padding-inline-start: 1.5rem; font-weight: 500; }
     
-    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent-blue); position: absolute; right: 0; font-weight: bold; }
-    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent-blue); position: absolute; left: 0; font-weight: bold; }
+    [dir="rtl"] .card ul li::before { content: "✓"; color: var(--accent-green-dark); position: absolute; right: 0; font-weight: bold; }
+    [dir="ltr"] .card ul li::before { content: "✓"; color: var(--accent-green-dark); position: absolute; left: 0; font-weight: bold; }
 
     /* Booking Form Section */
     .booking-section { background-color: #F1F5F9; padding: 5rem 2rem; border-top: 1px solid #E2E8F0; border-bottom: 1px solid #E2E8F0; }
-    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent-blue); }
+    .booking-container { max-width: 650px; margin: 0 auto; background: #ffffff; padding: 2.5rem; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); border-top: 5px solid var(--accent-green); }
     .booking-container h3 { text-align: center; font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem; }
     .booking-container p { text-align: center; color: #64748B; margin-bottom: 2rem; }
     .form-group { margin-bottom: 1.2rem; }
     .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--secondary); }
     .form-group input, .form-group select { width: 100%; padding: 0.85rem; border: 1px solid #CBD5E1; border-radius: 8px; font-size: 1rem; }
+    .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--accent-green); box-shadow: 0 0 0 3px rgba(0,255,102,0.15); }
     .btn-submit { width: 100%; background-color: #25D366; color: white; padding: 1rem; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: background 0.2s; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
     .btn-submit:hover { background-color: #1EB854; }
 
@@ -215,8 +218,8 @@
     .reviews { background-color: var(--light); padding: 5rem 2rem; }
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
     .review-card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; }
-    [dir="rtl"] .review-card { border-right: 4px solid var(--accent-blue); }
-    [dir="ltr"] .review-card { border-left: 4px solid var(--accent-blue); }
+    [dir="rtl"] .review-card { border-right: 4px solid var(--accent-green); }
+    [dir="ltr"] .review-card { border-left: 4px solid var(--accent-green); }
     .stars { color: #F59E0B; margin-bottom: 0.5rem; font-size: 1.1rem; }
 
     /* Contact & Location */
@@ -224,7 +227,7 @@
     .contact-container { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
     .contact-info { flex: 1; min-width: 280px; }
     .contact-info p { margin-bottom: 1.2rem; font-size: 1.1rem; }
-    .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-blue); font-size: 1.3rem; text-decoration: none; }
+    .phone-number { direction: ltr; display: inline-block; font-weight: bold; color: var(--accent-green-dark); font-size: 1.3rem; text-decoration: none; }
     .map-container { flex: 1; min-width: 280px; height: 320px; border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; }
     iframe { width: 100%; height: 100%; border: 0; }
 
@@ -288,7 +291,7 @@
 
     <!-- Logo strictly pinned to the Right Corner -->
     <a href="#" class="nav-logo-link">
-      <img src="logo.png" alt="Adaileh Car Care Center Logo" class="nav-logo">
+      <img src="logo.png.jpg" alt="Adaileh Car Care Center Logo" class="nav-logo">
     </a>
   </div>
 
@@ -306,10 +309,10 @@
     <h3 id="servicesHeading">خدماتنا المتخصصة</h3>
     <div class="grid">
       
-      <!-- Service 1 -->
+      <!-- Service 1: Nano Ceramic -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
+          <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" alt="Nano Ceramic Coating" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s1Title">حماية النانو سيراميك</h4>
@@ -322,10 +325,10 @@
         </div>
       </div>
 
-      <!-- Service 2 -->
+      <!-- Service 2: Paint Polish & Correction -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Paint Correction Polish" class="card-img">
+          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" alt="Paint Correction Polish" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s2Title">التلميع والبوليش الخارجي</h4>
@@ -338,10 +341,10 @@
         </div>
       </div>
 
-      <!-- Service 3 -->
+      <!-- Service 3: Interior Detailing -->
       <div class="card">
         <div class="card-img-wrapper">
-          <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" alt="Interior Auto Detailing" class="card-img">
+          <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Interior Auto Detailing" class="card-img">
         </div>
         <div class="card-content">
           <h4 id="s3Title">التنظيف والتفصيل الداخلي (Detailing)</h4>
@@ -406,7 +409,7 @@
       </div>
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p id="rev2Text">"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."</p>
+        <p id="rev2Text">"أفضل مركز عناية بالسيارات في الكرك، نظافة داخلية واستلام على الوقت المحدد بالضبط."</p>
         <br><strong id="rev2Author">- خالد المجالي</strong>
       </div>
       <div class="review-card">
@@ -481,7 +484,7 @@
         reviewsHeading: "آراء عملائنا الكرام",
         rev1Text: '"ما شاء الله شغل متقن جداً، رجعت السيارة وكالة من التلميع والنانو سيراميك. معاملة راقية جداً."',
         rev1Author: "- محمد الطراونة",
-        rev2Text: '"أفضل مركز عناية بالسيارات، نظافة داخلية واستلام على الوقت المحدد بالضبط. ننصح بالتعامل معهم بشدة."',
+        rev2Text: '"أفضل مركز عناية بالسيارات في الكرك، نظافة داخلية واستلام على الوقت المحدد بالضبط."',
         rev2Author: "- خالد المجالي",
         rev3Text: '"خدمة ممتازة وأسعار منافسة جداً مقارنة بالجودة العالية للمواد المستخدمة."',
         rev3Author: "- عمر العبادي",
@@ -534,7 +537,7 @@
         reviewsHeading: "Customer Reviews",
         rev1Text: '"Exceptional work! My car looks brand new after the nano ceramic coating and polishing. Highly recommended!"',
         rev1Author: "- Mohammad Al-Tarawneh",
-        rev2Text: '"The best car care center around. Immaculate interior detailing and right on schedule."',
+        rev2Text: '"The best car care center in Karak. Immaculate interior detailing and right on schedule."',
         rev2Author: "- Khaled Al-Majali",
         rev3Text: '"Excellent service quality and very competitive prices compared to the premium products used."',
         rev3Author: "- Omar Al-Abbadi",

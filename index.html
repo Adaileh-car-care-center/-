@@ -772,132 +772,134 @@
         lblDate: "Preferred Visit Date:",
         btnSubmit: "📲 Send Reservation via WhatsApp",
         reviewsHeading: "Customer Reviews",
-        rev1Text: '"Exceptional work! My car looks brand new after the nano ceramic coating and polishing. Highly recommended!"',
+        rev1Text: '"Exceptional work! My car looks brand new after the polishing and ceramic coating. Very professional service."',
         rev1Author: "- Mohammad Al-Tarawneh",
-        rev2Text: '"The best car care center in Karak. Immaculate interior detailing and right on schedule."',
+        rev2Text: '"The best car care center in Karak. Impeccable interior cleaning and exact delivery time."',
         rev2Author: "- Khaled Al-Majali",
-        rev3Text: '"Excellent service quality and very competitive prices compared to the premium products used."',
+        rev3Text: '"Outstanding service and competitive pricing given the premium materials used."',
         rev3Author: "- Omar Al-Abbadi",
         contactHeading: "Location & Direct Contact",
-        lblMgr: "Ownership:",
+        lblMgr: "Owner / Management:",
         valMgr: "Ahmad Adaileh",
         lblPhone: "Phone / WhatsApp:",
         lblEmail: "Email Address:",
         lblAddr: "Address:",
-        valAddr: "Karak, Jordan",
+        valAddr: "Jordan - Karak",
         lblHours: "Working Hours:",
         valHours: "Daily from 9:00 AM to 9:00 PM",
-        footerText: "© All Rights Reserved - Adaileh Car Care Center - Karak | Ownership: Ahmad Adaileh | hmadadaileh1995@gmail.com",
+        footerText: "&copy; All Rights Reserved - Adaileh Car Care Center - Karak | Ownership: Ahmad Adaileh | hmadadaileh1995@gmail.com",
         langBtnText: "العربية"
       }
     };
 
     function toggleLanguage() {
       currentLang = currentLang === 'ar' ? 'en' : 'ar';
+      const t = translations[currentLang];
       const root = document.getElementById('htmlRoot');
-      const data = translations[currentLang];
 
-      root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
       root.setAttribute('lang', currentLang);
+      root.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
 
-      document.getElementById('phoneLabel').textContent = data.phoneLabel;
-      document.getElementById('heroTitle').textContent = data.heroTitle;
-      document.getElementById('heroDesc').textContent = data.heroDesc;
-      document.getElementById('heroBtn').textContent = data.heroBtn;
+      // Update text elements safely
+      document.getElementById('pageTitle').innerText = currentLang === 'ar' ? "مركز العضايله للعناية بالمركبات - الكرك | Adaileh Car Care Center" : "Adaileh Car Care Center - Karak | Premium Vehicle Care";
+      document.getElementById('phoneLabel').innerText = t.phoneLabel;
+      document.getElementById('heroTitle').innerText = t.heroTitle;
+      document.getElementById('heroDesc').innerText = t.heroDesc;
+      document.getElementById('heroBtn').innerText = t.heroBtn;
+      document.getElementById('stat1Text').innerText = t.stat1Text;
+      document.getElementById('stat2Text').innerText = t.stat2Text;
+      document.getElementById('stat3Text').innerText = t.stat3Text;
       
-      document.getElementById('stat1Text').textContent = data.stat1Text;
-      document.getElementById('stat2Text').textContent = data.stat2Text;
-      document.getElementById('stat3Text').textContent = data.stat3Text;
-      document.getElementById('stat1TextEnd').textContent = data.stat1Text;
-      document.getElementById('stat2TextEnd').textContent = data.stat2Text;
-      document.getElementById('stat3TextEnd').textContent = data.stat3Text;
+      document.getElementById('servicesHeading').innerText = t.servicesHeading;
+      document.getElementById('s1Title').innerText = t.s1Title;
+      document.getElementById('s1Desc').innerText = t.s1Desc;
+      document.getElementById('s1f1').innerText = t.s1f1;
+      document.getElementById('s1f2').innerText = t.s1f2;
+      document.getElementById('s1f3').innerText = t.s1f3;
 
-      document.getElementById('servicesHeading').textContent = data.servicesHeading;
+      document.getElementById('s2Title').innerText = t.s2Title;
+      document.getElementById('s2Desc').innerText = t.s2Desc;
+      document.getElementById('s2f1').innerText = t.s2f1;
+      document.getElementById('s2f2').innerText = t.s2f2;
+      document.getElementById('s2f3').innerText = t.s2f3;
+
+      document.getElementById('s3Title').innerText = t.s3Title;
+      document.getElementById('s3Desc').innerText = t.s3Desc;
+      document.getElementById('s3f1').innerText = t.s3f1;
+      document.getElementById('s3f2').innerText = t.s3f2;
+      document.getElementById('s3f3').innerText = t.s3f3;
+
+      document.getElementById('whyHeading').innerText = t.whyHeading;
+      document.getElementById('w1Title').innerText = t.w1Title;
+      document.getElementById('w1Desc').innerText = t.w1Desc;
+      document.getElementById('w2Title').innerText = t.w2Title;
+      document.getElementById('w2Desc').innerText = t.w2Desc;
+      document.getElementById('w3Title').innerText = t.w3Title;
+      document.getElementById('w3Desc').innerText = t.w3Desc;
+
+      document.getElementById('bookTitle').innerText = t.bookTitle;
+      document.getElementById('bookSub').innerText = t.bookSub;
+      document.getElementById('lblCustName').innerText = t.lblCustName;
+      document.getElementById('custName').placeholder = t.phCustName;
+      document.getElementById('lblCarModel').innerText = t.lblCarModel;
+      document.getElementById('carModel').placeholder = t.phCarModel;
+      document.getElementById('lblService').innerText = t.lblService;
       
-      document.getElementById('s1Title').textContent = data.s1Title;
-      document.getElementById('s1Desc').textContent = data.s1Desc;
-      document.getElementById('s1f1').textContent = data.s1f1;
-      document.getElementById('s1f2').textContent = data.s1f2;
-      document.getElementById('s1f3').textContent = data.s1f3;
+      document.getElementById('opt1').innerText = t.opt1;
+      document.getElementById('opt1').value = t.opt1;
+      document.getElementById('opt2').innerText = t.opt2;
+      document.getElementById('opt2').value = t.opt2;
+      document.getElementById('opt3').innerText = t.opt3;
+      document.getElementById('opt3').value = t.opt3;
+      document.getElementById('opt4').innerText = t.opt4;
+      document.getElementById('opt4').value = t.opt4;
+      document.getElementById('opt5').innerText = t.opt5;
+      document.getElementById('opt5').value = t.opt5;
 
-      document.getElementById('s2Title').textContent = data.s2Title;
-      document.getElementById('s2Desc').textContent = data.s2Desc;
-      document.getElementById('s2f1').textContent = data.s2f1;
-      document.getElementById('s2f2').textContent = data.s2f2;
-      document.getElementById('s2f3').textContent = data.s2f3;
+      document.getElementById('lblDate').innerText = t.lblDate;
+      document.getElementById('btnSubmit').innerText = t.btnSubmit;
 
-      document.getElementById('s3Title').textContent = data.s3Title;
-      document.getElementById('s3Desc').textContent = data.s3Desc;
-      document.getElementById('s3f1').textContent = data.s3f1;
-      document.getElementById('s3f2').textContent = data.s3f2;
-      document.getElementById('s3f3').textContent = data.s3f3;
+      document.getElementById('reviewsHeading').innerText = t.reviewsHeading;
+      document.getElementById('rev1Text').innerText = t.rev1Text;
+      document.getElementById('rev1Author').innerText = t.rev1Author;
+      document.getElementById('rev2Text').innerText = t.rev2Text;
+      document.getElementById('rev2Author').innerText = t.rev2Author;
+      document.getElementById('rev3Text').innerText = t.rev3Text;
+      document.getElementById('rev3Author').innerText = t.rev3Author;
 
-      document.getElementById('whyHeading').textContent = data.whyHeading;
-      document.getElementById('w1Title').textContent = data.w1Title;
-      document.getElementById('w1Desc').textContent = data.w1Desc;
-      document.getElementById('w2Title').textContent = data.w2Title;
-      document.getElementById('w2Desc').textContent = data.w2Desc;
-      document.getElementById('w3Title').textContent = data.w3Title;
-      document.getElementById('w3Desc').textContent = data.w3Desc;
+      document.getElementById('contactHeading').innerText = t.contactHeading;
+      document.getElementById('lblMgr').innerText = t.lblMgr;
+      document.getElementById('valMgr').innerText = t.valMgr;
+      document.getElementById('lblPhone').innerText = t.lblPhone;
+      document.getElementById('lblEmail').innerText = t.lblEmail;
+      document.getElementById('lblAddr').innerText = t.lblAddr;
+      document.getElementById('valAddr').innerText = t.valAddr;
+      document.getElementById('lblHours').innerText = t.lblHours;
+      document.getElementById('valHours').innerText = t.valHours;
 
-      document.getElementById('bookTitle').textContent = data.bookTitle;
-      document.getElementById('bookSub').textContent = data.bookSub;
-      document.getElementById('lblCustName').textContent = data.lblCustName;
-      document.getElementById('custName').placeholder = data.phCustName;
-      document.getElementById('lblCarModel').textContent = data.lblCarModel;
-      document.getElementById('carModel').placeholder = data.phCarModel;
-      document.getElementById('lblService').textContent = data.lblService;
-      
-      document.getElementById('opt1').textContent = data.opt1;
-      document.getElementById('opt1').value = data.opt1;
-      document.getElementById('opt2').textContent = data.opt2;
-      document.getElementById('opt2').value = data.opt2;
-      document.getElementById('opt3').textContent = data.opt3;
-      document.getElementById('opt3').value = data.opt3;
-      document.getElementById('opt4').textContent = data.opt4;
-      document.getElementById('opt4').value = data.opt4;
-      document.getElementById('opt5').textContent = data.opt5;
-      document.getElementById('opt5').value = data.opt5;
-
-      document.getElementById('lblDate').textContent = data.lblDate;
-      document.getElementById('btnSubmit').textContent = data.btnSubmit;
-
-      document.getElementById('reviewsHeading').textContent = data.reviewsHeading;
-      document.getElementById('rev1Text').textContent = data.rev1Text;
-      document.getElementById('rev1Author').textContent = data.rev1Author;
-      document.getElementById('rev2Text').textContent = data.rev2Text;
-      document.getElementById('rev2Author').textContent = data.rev2Author;
-      document.getElementById('rev3Text').textContent = data.rev3Text;
-      document.getElementById('rev3Author').textContent = data.rev3Author;
-
-      document.getElementById('contactHeading').textContent = data.contactHeading;
-      document.getElementById('lblMgr').textContent = data.lblMgr;
-      document.getElementById('valMgr').textContent = data.valMgr;
-      document.getElementById('lblPhone').textContent = data.lblPhone;
-      document.getElementById('lblEmail').textContent = data.lblEmail;
-      document.getElementById('lblAddr').textContent = data.lblAddr;
-      document.getElementById('valAddr').textContent = data.valAddr;
-      document.getElementById('lblHours').textContent = data.lblHours;
-      document.getElementById('valHours').textContent = data.valHours;
-
-      document.getElementById('footerText').textContent = data.footerText;
-      document.getElementById('langBtnText').textContent = data.langBtnText;
+      document.getElementById('stat1TextEnd').innerText = t.stat1Text;
+      document.getElementById('stat2TextEnd').innerText = t.stat2Text;
+      document.getElementById('stat3TextEnd').innerText = t.stat3Text;
+      document.getElementById('footerText').innerHTML = t.footerText;
+      document.getElementById('langBtnText').innerText = t.langBtnText;
     }
 
     function sendBooking(event) {
       event.preventDefault();
       const name = document.getElementById('custName').value;
-      const model = document.getElementById('carModel').value;
+      const car = document.getElementById('carModel').value;
       const service = document.getElementById('serviceType').value;
       const date = document.getElementById('bookingDate').value;
 
-      const message = currentLang === 'ar' 
-        ? `مرحباً مركز العضايله (الكرك)، أود حجز موعد:%0A- الاسم: ${name}%0A- السيارة: ${model}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`
-        : `Hello Adaileh Center (Karak), I would like to book an appointment:%0A- Name: ${name}%0A- Car: ${model}%0A- Service: ${service}%0A- Preferred Date: ${date}`;
-      
-      window.open(`https://wa.me/962776999555?text=${message}`, '_blank');
+      let msg = "";
+      if (currentLang === 'ar') {
+        msg = `مرحباً، أود حجز موعد جديد:%0A- الاسم: ${name}%0A- السيارة: ${car}%0A- الخدمة: ${service}%0A- التاريخ المفضل: ${date}`;
+      } else {
+        msg = `Hello, I would like to book a new appointment:%0A- Name: ${name}%0A- Car: ${car}%0A- Service: ${service}%0A- Preferred Date: ${date}`;
+      }
+
+      window.open(`https://wa.me/962776999555?text=${msg}`, '_blank');
     }
   </script>
-
 </body>
 </html>
